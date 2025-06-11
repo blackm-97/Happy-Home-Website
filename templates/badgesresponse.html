@@ -7,4 +7,11 @@
     </form>
     <h2>Hello User: {{userName}}</h2>
     <h2>Your ID is: {{userId}}</h2>
+
+    {% for badge in gameData%}
+        <section>
+            <h3>{{badge['displayName']}}</h3>
+            <p>{{badge['description']}}</p>
+        </section>
+    {% endfor %}
 {% endblock%}

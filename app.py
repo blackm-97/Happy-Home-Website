@@ -2,7 +2,7 @@
 # An object of Flask class is our WSGI application.
 from flask import Flask, redirect, url_for, request, render_template, jsonify
 import requests
-from request_list import userInfo
+from request_list import *
 from flask_bootstrap import Bootstrap
 
 #request is used to parse request data and figure out what to return
@@ -66,7 +66,8 @@ def badges():
             if len(data) != 0:
                 data = data[0]
                 #We will have to do much more for comparing badges to users current badges
-                return render_template('badgesresponse.html', userName=data['name'], userId=data['id'])
+                gameData = getGameBadges()
+                return render_template('badgesresponse.html', userName=data['name'], userId=data['id'], gameData=gameData.json()['data'])
             else:
                 errorMessage = "User Not Found"
         
