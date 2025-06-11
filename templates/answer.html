@@ -1,0 +1,6 @@
+{% extends 'baseplate.html' %}
+{% block content %}
+<h1>The cube of {{initialNum}} is: {{cubedNum}}</h1>
+
+<a href= "{{ url_for('cube') }}"><p>Try another number?</p></a>
+{% endblock%}
