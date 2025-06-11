@@ -2,6 +2,7 @@
 # An object of Flask class is our WSGI application.
 from flask import Flask, redirect, url_for, request, render_template, jsonify
 import requests
+from request_list import userInfo
 from flask_bootstrap import Bootstrap
 
 #request is used to parse request data and figure out what to return
@@ -53,30 +54,18 @@ def badges():
 
         if nameRequest.strip() == '':
             #TODO: Message flash here
-            return render_template('badges.html')
+            return render_template('badges.html', error='Username cannot be empty')
 
-        # API endpoints
-        username_url = "https://users.roblox.com/v1/usernames/users"
-
-        #Username payload
-        payload = {
-            "usernames": [nameRequest],
-            "excludeBannedUsers": True
-        }
-
-        # Headers
-        headers = {
-            "Content-Type": "application/json"
-        }
-
-        userResponse = requests.post(username_url, json=payload, headers=headers)
+        userResponse = userInfo(nameRequest)
 
         errorMessage = "Unknown Error Occurred"
 
+        #We can make this better with showing a error response message
         if userResponse.status_code == 200:
             data = userResponse.json()['data']
             if len(data) != 0:
                 data = data[0]
+                #We will have to do much more for comparing badges to users current badges
                 return render_template('badgesresponse.html', userName=data['name'], userId=data['id'])
             else:
                 errorMessage = "User Not Found"
