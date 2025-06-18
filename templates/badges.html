@@ -2,7 +2,7 @@
 
 {% block content %}
     <section class="enter-block">
-        <form action="{{url_for('badges')}}" method='POST' class="text-center" onsubmit="this.querySelector('button').disabled = true;">
+        <form action="{{url_for('badges')}}" method='POST' class="text-center" onsubmit="startLoading(this);">
             <h1>Enter Roblox Username: </h1>
             <div class="input-group mb-3 name-input input-group-lg w-50 m-auto">
                 <input type="text" class="form-control" placeholder="Roblox Username..." aria-label="Roblox Username" aria-describedby="basic-addon2"  name="R_Name" id="R_Name">
@@ -15,5 +15,6 @@
             <p class="text-center">{{error}}</p>
          {%endif%}
     </section>
+    <script src="/static/utilities.js" charset="utf-8"></script>
     <!-- We should add a spinning wheel while loading here! -->
 {% endblock%}
