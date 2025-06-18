@@ -1,0 +1,14 @@
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+      gap: 1rem;
+    }
+    /* .card-title, .card-{
+      border: 4mm ridge rgba(211, 220, 50, 0.6);
+      border-radius: 2em;
+    } */
+
+    .card {
+      width: 100%;  /* Fills the 18rem min-width grid cell */
+      height: 100%;
+    }

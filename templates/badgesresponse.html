@@ -5,17 +5,21 @@
         <h2>Your ID is: {{userId}}</h2>
     </header>
     <section>
-        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="container mt-4">
+                <div class="card-grid">
+
             {% for badge in gameData%}
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{badge['displayName']}}</h5>
-                        <p class="card-text">{{badge['description']}}</p>
+                    <div class="col">
+                        <div class="card h-100 text-center border-dark mb-3" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{badge['displayName']}}</h5>
+                                <img class="card-img-top" src="..." alt="Card image cap">
+                                <p class="card-text align-bottom">{{badge['description']}}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
             {% endfor %}
+            </div>
         </div>
     </section>
 {% endblock%}
