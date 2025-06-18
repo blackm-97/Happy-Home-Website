@@ -68,11 +68,16 @@ def badges():
                 #We will have to do much more for comparing badges to users current badges
                 gameData = getGameBadges()
 
+                gameData = gameData.json()['data']
+
+                retrievedBadges = getCollectedBadges(data['id'] ,gameData)
+
                 #Dictionary of Parameters
                 context = {
-                    'gameData': gameData.json()['data'],
+                    'gameData': gameData,
                     'userName' : data['name'],
-                    'useId' : data['id']
+                    'userId' : data['id'],
+                    'earnedDict' : retrievedBadges.json()['data']
                 }
 
                 return render_template('badgesresponse.html', **context)

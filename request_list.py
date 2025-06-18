@@ -22,7 +22,7 @@ def userInfo(username: str):
     return requests.post(username_url, json=payload, headers=headers)
 
 #Gets the badges a user has collected when given a userID
-def getCollectedBadges(userId):
+def getCollectedBadges(userId, gameData):
     #
     #
     # We are getting all game badges on inserted username. Maybe we could do this a different way?
@@ -30,15 +30,27 @@ def getCollectedBadges(userId):
     #
 
     #TODO: Dynamically populate this with badge ID's
-    badgeString = "19361395,21646065,22932819,2125008032"
+    badges_url = "https://badges.roblox.com/v1/users/" + str(userId) + "/badges/awarded-dates?badgeIds="
 
-    badges_url = "https://badges.roblox.com/v1/users/1761381026/badges/awarded-dates?badgeIds=" + badgeString
+    first = True
+    for badge in gameData:
+        if first:
+           badges_url += str(badge['id'])
+           first = False
+        else:
+            badges_url +=("," + str(badge['id'])) 
 
     # Headers
     headers = {
         "Content-Type": "application/json"
     }
-    return requests.get(badges_url, headers=headers)
+
+    response = requests.get(badges_url, headers=headers)
+    if response.status_code == 200:
+        return response
+    else:
+        #TODO: Brush this up, very messy
+        return False
 
 # { BADGE RESPONSE BODY
 #       "id": 19361395,
