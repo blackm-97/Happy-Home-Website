@@ -13,11 +13,11 @@
                         <div class="card h-100 text-center border-dark mb-3" style="width: 18rem;">
                             <div class="card-body">
                                 <h5 class="card-title">{{badge['displayName']}}</h5>
-                                <img class="card-img-top" src="..." alt="Card image cap">
-                                <p class="card-text align-bottom">{{badge['description']}}</p>
-                                {% if badge['collected'] %}
-                                    <p class="card-text align-bottom">{{badge['awardedDate']}}</p>
-                                {% endif %}
+                                <img class="card-img-top" src="/static/Cheese.png" alt="placeholder">
+                                <p class="card-text">{{badge['description']}}</p>
+                                <div class="card-footer text-body-secondary">
+                                    Earned on: {{badge['awardedDate']}}
+                                </div>
                             </div>
                         </div>
                     </div>

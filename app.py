@@ -71,7 +71,7 @@ def badges():
 
                 gameData = gameData.json()['data']
 
-                retrievedBadges = getCollectedBadges(data['id'] ,gameData)
+                retrievedBadges = getCollectedBadges(data['id'],gameData)
                 retrievedBadges = retrievedBadges.json()['data']
 
                 #Dictionary of Parameters

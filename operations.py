@@ -3,12 +3,20 @@ def createBadgeList(gameData, userBadges):
     collectedBadgeLength = len(userBadges)
     i = 0
 
+    #Create dictionary of badge Id -> award date
+    badgeDictionary = {}
+    for data in userBadges:
+        badgeDictionary[data['badgeId']] = data['awardedDate']
+
     for badge in gameData:
         badge['collected'] = False
         badge['awardedDate'] = "N/A"
-        if i < collectedBadgeLength and (userBadges[i].get('badgeId', None) == badge['id']):
+
+        value = badgeDictionary.get(badge['id'], None)
+
+        if value:
             badge['collected'] = True
-            badge['awardedDate'] = userBadges[i].get('awardedDate',"Error")
+            badge['awardedDate'] = value[0:9]
             i += 1
 
     return gameData
