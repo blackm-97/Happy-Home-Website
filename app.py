@@ -67,7 +67,15 @@ def badges():
                 data = data[0]
                 #We will have to do much more for comparing badges to users current badges
                 gameData = getGameBadges()
-                return render_template('badgesresponse.html', userName=data['name'], userId=data['id'], gameData=gameData.json()['data'])
+
+                #Dictionary of Parameters
+                context = {
+                    'gameData': gameData.json()['data'],
+                    'userName' : data['name'],
+                    'useId' : data['id']
+                }
+
+                return render_template('badgesresponse.html', **context)
             else:
                 errorMessage = "User Not Found"
         
