@@ -3,11 +3,12 @@
 {% block content %}
     <form action="{{url_for('badges')}}" method='POST' class="text-center">
         <h1>Enter Roblox Username: </h1>
-                <div class="input-group input-group-lg">
-            <span class="input-group-text" id="inputGroup-sizing-lg">Large</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="R_Name" id="R_Name">
+        <div class="input-group mb-3 name-input">
+            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"  name="R_Name" id="R_Name">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit" value="submit">Button</button>
+            </div>
         </div>
-        <input type="submit" value="submit">
     </form>
     {% if error%}
     <p class="text-center">{{error}}</p>

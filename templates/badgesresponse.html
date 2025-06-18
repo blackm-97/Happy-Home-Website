@@ -15,11 +15,13 @@
                                 <h5 class="card-title">{{badge['displayName']}}</h5>
                                 <img class="card-img-top" src="..." alt="Card image cap">
                                 <p class="card-text align-bottom">{{badge['description']}}</p>
+                                {% if badge['collected'] %}
+                                    <p class="card-text align-bottom">{{badge['awardedDate']}}</p>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
             {% endfor %}
-                <p>{{earnedDict}}</p>
             </div>
         </div>
     </section>

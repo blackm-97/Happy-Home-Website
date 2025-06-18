@@ -3,6 +3,7 @@
 from flask import Flask, redirect, url_for, request, render_template, jsonify
 import requests
 from request_list import *
+from operations import *
 from flask_bootstrap import Bootstrap
 
 #request is used to parse request data and figure out what to return
@@ -71,13 +72,14 @@ def badges():
                 gameData = gameData.json()['data']
 
                 retrievedBadges = getCollectedBadges(data['id'] ,gameData)
+                retrievedBadges = retrievedBadges.json()['data']
 
                 #Dictionary of Parameters
                 context = {
-                    'gameData': gameData,
+                    'gameData': createBadgeList(gameData, retrievedBadges),
                     'userName' : data['name'],
                     'userId' : data['id'],
-                    'earnedDict' : retrievedBadges.json()['data']
+                    'earnedDict' : retrievedBadges
                 }
 
                 return render_template('badgesresponse.html', **context)
