@@ -1,3 +1,8 @@
+    :root{
+      --pumpkin: #FF802B;
+      --dark-pumpkin: #81441b;
+    }
+    
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
@@ -8,12 +13,31 @@
       border-radius: 2em;
     } */
 
-    /* .Blookrem .blookrem{
-      color: blue;
-      background-color: aqua;
-    } */
+    .name-input{
+      border: 4mm solid var(--pumpkin);
+      border-radius: 2em;
+    }
+
+    .enter-img{
+      width: 34px;
+      height: 34px;
+      object-fit: fill;
+    }
+
+    .enter-button{
+      border-radius: 0.5em;
+      background-color: var(--pumpkin);
+    }
+
+    .enter-button:hover{
+      background-color: var(--dark-pumpkin);
+    }
 
     .card {
       width: 100%;  /* Fills the 18rem min-width grid cell */
       height: 100%;
+    }
+
+    .enter-block{
+
     }

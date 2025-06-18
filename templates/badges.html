@@ -1,18 +1,19 @@
 {% extends 'baseplate.html' %}
 
 {% block content %}
-    <form action="{{url_for('badges')}}" method='POST' class="text-center">
-        <h1>Enter Roblox Username: </h1>
-        <div class="input-group mb-3 name-input">
-            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"  name="R_Name" id="R_Name">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="submit" value="submit">Button</button>
+    <section class="enter-block">
+        <form action="{{url_for('badges')}}" method='POST' class="text-center" onsubmit="this.querySelector('button').disabled = true;">
+            <h1>Enter Roblox Username: </h1>
+            <div class="input-group mb-3 name-input input-group-lg w-50 m-auto">
+                <input type="text" class="form-control" placeholder="Roblox Username..." aria-label="Roblox Username" aria-describedby="basic-addon2"  name="R_Name" id="R_Name">
+                <div class="input-group-append enter-button">
+                    <button class="btn btn-outline-none" type="submit" value="submit"><img class="enter-img" src="/static/arrow-enter-svgrepo-com.svg" alt=""></button>
+                </div>
             </div>
-        </div>
-    </form>
-    {% if error%}
-    <p class="text-center">{{error}}</p>
-    {%endif%}
-
+        </form>
+        {% if error%}
+            <p class="text-center">{{error}}</p>
+         {%endif%}
+    </section>
     <!-- We should add a spinning wheel while loading here! -->
 {% endblock%}

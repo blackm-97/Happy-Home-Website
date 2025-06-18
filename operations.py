@@ -16,7 +16,7 @@ def createBadgeList(gameData, userBadges):
 
         if value:
             badge['collected'] = True
-            badge['awardedDate'] = value[0:9]
+            badge['awardedDate'] = value[0:10]
             i += 1
 
     return gameData
