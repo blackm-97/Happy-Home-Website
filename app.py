@@ -2,6 +2,7 @@
 # An object of Flask class is our WSGI application.
 from flask import Flask, redirect, url_for, request, render_template, jsonify
 import requests
+from concurrent.futures import ThreadPoolExecutor
 from request_list import *
 from operations import *
 from flask_bootstrap import Bootstrap
@@ -18,6 +19,11 @@ Bootstrap(app)
 # The route() function of the Flask class is a decorator, 
 # which tells the application which URL should call 
 # the associated function.
+
+#If I ever need to run multiple threads at a time :)
+executor = ThreadPoolExecutor(max_workers=5)
+
+
 port_number = 5000
 
 #Universe ID:
@@ -62,31 +68,35 @@ def badges():
         errorMessage = "Unknown Error Occurred"
 
         #We can make this better with showing a error response message
-        if userResponse.status_code == 200:
-            data = userResponse.json()['data']
-            if len(data) != 0:
-                data = data[0]
-                #We will have to do much more for comparing badges to users current badges
-                gameData = getGameBadges()
+        if userResponse.status_code != 200:
+            return render_template('badges.html', error="Roblox Server Error")
 
-                gameData = gameData.json()['data']
+        data = userResponse.json()['data']
+        if len(data) == 0:
+            return render_template('badges.html', error="User Not Found")
 
-                retrievedBadges = getCollectedBadges(data['id'],gameData)
-                retrievedBadges = retrievedBadges.json()['data']
 
-                #Dictionary of Parameters
-                context = {
-                    'gameData': createBadgeList(gameData, retrievedBadges),
-                    'userName' : data['name'],
-                    'userId' : data['id'],
-                    'earnedDict' : retrievedBadges
-                }
+        try:
+            data = data[0]
+            #We will have to do much more for comparing badges to users current badges
 
-                return render_template('badgesresponse.html', **context)
-            else:
-                errorMessage = "User Not Found"
-        
-        return render_template('badges.html', error=errorMessage)
+            gameData = getGameBadges()
+            gameData = gameData.json()['data']
+
+            retrievedBadges = getCollectedBadges(data['id'],gameData)
+            retrievedBadges = retrievedBadges.json()['data']
+
+            #Dictionary of Parameters
+            context = {
+                'gameData': createBadgeList(gameData, retrievedBadges),
+                'userName' : data['name'],
+                'userId' : data['id'],
+                'earnedDict' : retrievedBadges
+            }
+
+            return render_template('badgesresponse.html', **context)
+        except:
+            return render_template('badges.html', error="Unknown Server Error")
     else:
         return render_template('badges.html')
 
