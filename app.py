@@ -7,6 +7,14 @@ from request_list import *
 from operations import *
 from flask_bootstrap import Bootstrap
 
+from datetime import datetime
+from flask_sqlalchemy import SQLAlchemy
+from dotenv import load_dotenv
+load_dotenv()
+
+import os
+
+
 #request is used to parse request data and figure out what to return
 
 #API info at https://users.roblox.com//docs/index.html, and https://badges.roblox.com//docs/index.html?urls.primaryName=Badges%20Api%20v1
@@ -22,6 +30,14 @@ Bootstrap(app)
 
 #If I ever need to run multiple threads at a time :)
 executor = ThreadPoolExecutor(max_workers=5)
+
+
+# Configure SQLite database
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Avoids a warning
+
+# Create SQLAlchemy instance
+db = SQLAlchemy(app)
 
 
 port_number = 5000
@@ -102,4 +118,6 @@ def badges():
     
     
 if __name__ == '__main__':
+    with app.app_context():  # Needed for DB operations
+        db.create_all()      # Creates the database and tables
     app.run(debug=True, port=port_number)

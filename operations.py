@@ -10,13 +10,14 @@ def createBadgeList(gameData, userBadges):
     for data in userBadges:
         badgeDictionary[data['badgeId']] = data['awardedDate']
 
-    sections = ["Main Hub", "Dream Island", "Depths of Void", "Arena", "Bonus Badges"]
+    sections = ["Main Hub", "Dream Island", "Depths of Void", "Arena", "Milestones"]
     breakpoints = [19361395, 2124783685, 36731175871168, 2124980594, 2124943412]
     res = []
 
     index = 0
   
-    currDict = {}
+    currDict = {} #{name->sectionName, bagdes->[list of badges]}
+    #For each badge, we add it to once of the sections above. We figure out which section based on the badge breakpoint
     for badge in gameData:
         if index < len(breakpoints) and badge['id'] == breakpoints[index]:
             if currDict:
