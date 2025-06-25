@@ -95,8 +95,8 @@ def badges():
             }
 
             return render_template('badgesresponse.html', **context)
-        except:
-            return render_template('badges.html', error="Unknown Server Error")
+        except Exception as e:
+            return render_template('badges.html', error=f"Internal Server Error: {e}")
     else:
         return render_template('badges.html')
 

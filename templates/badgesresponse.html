@@ -4,11 +4,14 @@
         <h2>Hello User: {{userName}}</h2>
         <h2>Your ID is: {{userId}}</h2>
     </header>
+    <!--Divide up badges by section here-->
+    {%for section in gameData%}
     <section>
+        <h2 class="badge-section text-center m-10">{{section['sectionName']}}</h2>
             <div class="container mt-4">
                 <div class="card-grid">
 
-            {% for badge in gameData%}
+            {% for badge in section['badges']%}
                     <div class="col">
                         <div class="card h-100 text-center mb-3 {% if not badge.collected %}bg-secondary text-light-emphasis{% endif %}" style="width: 18rem;">
                             <div class="card-body">
@@ -25,4 +28,5 @@
             </div>
         </div>
     </section>
+    {% endfor %}
 {% endblock%}
