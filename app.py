@@ -99,7 +99,7 @@ def badges():
             return render_template('badges.html', error=f"Internal Server Error: {e}")
     else:
         return render_template('badges.html')
-
+    
     
 if __name__ == '__main__':
     app.run(debug=True, port=port_number)

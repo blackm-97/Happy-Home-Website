@@ -7,7 +7,7 @@
     <!--Divide up badges by section here-->
     {%for section in gameData%}
     <section class="">
-        <h2 class="badge-section text-center m-3 p-3 bg-secondary">{{section['sectionName']}}</h2>
+        <h2 class="badge-section text-center m-3 p-3 bg-success bg-gradient border border-3 border-black rounded-3">{{section['sectionName']}}</h2>
             <div class="container mt-4">
                 <div class="card-grid">
 
@@ -16,7 +16,7 @@
                         <div class="card h-100 text-center mb-3 {% if not badge.collected %}bg-secondary text-light-emphasis{% endif %}" style="width: 18rem;">
                             <div class="card-body">
                                 <h5 class="card-title">{{badge['displayName']}}</h5>
-                                <img class="card-img-top {% if not badge.collected %} opacity-25 {% endif %}" src="/static/Cheese.png" alt="placeholder">
+                                <img class="card-img-top {% if not badge.collected %} opacity-25 {% endif %}" src="/static/images/Cheese.png" alt="placeholder">
                                 <p class="card-text">{{badge['description']}}</p>
                                 <div class="card-footer">
                                     Earned on: {{badge['awardedDate']}}

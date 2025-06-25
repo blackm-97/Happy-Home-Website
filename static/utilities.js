@@ -3,7 +3,7 @@ function startLoading(form){
     const img = button.querySelector('img');
     button.disabled = true;
     
-    img.src = "/static/loadingGif.gif";
+    img.src = "/static/images/loadingGif.gif";
     img.alt = "Loading...";
     
 }
