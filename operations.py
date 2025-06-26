@@ -1,5 +1,5 @@
 #Adds more info into the game data for the frontend to use
-def createBadgeList(gameData, userBadges):
+def createBadgeList(gameData, userBadges, databaseBadges):
     collectedBadgeLength = len(userBadges)
 
     #Total badges collected

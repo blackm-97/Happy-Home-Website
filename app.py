@@ -7,7 +7,8 @@ from request_list import *
 from operations import *
 from flask_bootstrap import Bootstrap
 
-from datetime import datetime
+from models.badgeModel import badgeInfoMaker
+
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 load_dotenv()
@@ -24,9 +25,6 @@ import os
 # current module (__name__) as argument.
 app = Flask(__name__)
 Bootstrap(app)
-# The route() function of the Flask class is a decorator, 
-# which tells the application which URL should call 
-# the associated function.
 
 #If I ever need to run multiple threads at a time :)
 executor = ThreadPoolExecutor(max_workers=5)
@@ -45,11 +43,19 @@ port_number = 5000
 #Universe ID:
 universe_id = 24833080
 
+#Gets badges from the database on spinup since they are not changing
+badgeConstructor = None
+with app.app_context():
+    badgeConstructor = badgeInfoMaker(db)
+
 @app.route('/')
 def home():
     return redirect(url_for('cube'))
 
 
+# The route() function of the Flask class is a decorator, 
+# which tells the application which URL should call 
+# the associated function.
 @app.route('/cube', methods=['GET', 'POST'])
 def cube():
     if request.method == 'POST':
@@ -102,9 +108,11 @@ def badges():
             retrievedBadges = getCollectedBadges(data['id'],gameData)
             retrievedBadges = retrievedBadges.json()['data']
 
+            db_badges = badgeConstructor.query.all()
+            
             #Dictionary of Parameters
             context = {
-                'gameData': createBadgeList(gameData, retrievedBadges),
+                'gameData': createBadgeList(gameData, retrievedBadges, db_badges),
                 'userName' : data['name'],
                 'userId' : data['id'],
                 'earnedDict' : retrievedBadges
