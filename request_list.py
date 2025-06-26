@@ -28,17 +28,25 @@ def getCollectedBadges(userId, gameData):
     # We are getting all game badges on inserted username. Maybe we could do this a different way?
     #
     #
-
-    #TODO: Dynamically populate this with badge ID's
     badges_url = "https://badges.roblox.com/v1/users/" + str(userId) + "/badges/awarded-dates?badgeIds="
+
+    nonCanon = []
+    breakpoint = 4406520174507095
+    isNonCanon = False
 
     first = True
     for badge in gameData:
         if first:
-           badges_url += str(badge['id'])
+           badges_url += str(badge.id)
            first = False
         else:
-            badges_url +=("," + str(badge['id'])) 
+            badges_url +=("," + str(badge.id) )
+
+        if badge.id == breakpoint:
+            isNonCanon = True
+        
+        if isNonCanon:
+            nonCanon.append(badge.to_dict())
 
     # Headers
     headers = {
@@ -47,7 +55,7 @@ def getCollectedBadges(userId, gameData):
 
     response = requests.get(badges_url, headers=headers)
     if response.status_code == 200:
-        return response
+        return (response, nonCanon)
     else:
         #TODO: Brush this up, very messy
         return False

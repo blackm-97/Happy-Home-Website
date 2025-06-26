@@ -7,7 +7,7 @@ def badgeInfoMaker(db):
         __tablename__ = 'BadgeInfo'
 
         id = db.Column(db.Integer, primary_key=True, unique=True, nullable=False)
-        name = db.Column(db.Text, nullable=False)
+        displayName = db.Column(db.Text, nullable=False)
         description = db.Column(db.Text, nullable=False)
         imagePath = db.Column(db.Text, nullable=False, default='static/images/Cheese.png')
         difficulty = db.Column(db.Text)
@@ -18,6 +18,9 @@ def badgeInfoMaker(db):
         date_uploaded = db.Column(db.DateTime, nullable=False, default=datetime.now)
 
         def __repr__(self):
-            return {f"<BadgeInfo id={self.id} name='{self.name}'>"}
+            return {f"<BadgeInfo id={self.id} displayName='{self.name}'>"}
+        
+        def to_dict(self):
+            return {c.name: getattr(self, c.name) for c in self.__table__.columns}
         
     return BadgeInfo

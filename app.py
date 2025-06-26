@@ -105,14 +105,15 @@ def badges():
             gameData = getGameBadges()
             gameData = gameData.json()['data']
 
-            retrievedBadges = getCollectedBadges(data['id'],gameData)
-            retrievedBadges = retrievedBadges.json()['data']
+            db_badges = badgeConstructor.query.order_by(badgeConstructor.date_uploaded.asc()).all()
 
-            db_badges = badgeConstructor.query.all()
-            
+            retrievedBadges = getCollectedBadges(data['id'], db_badges)
+            nonCanon = retrievedBadges[1]
+            retrievedBadges = retrievedBadges[0].json()['data']
+
             #Dictionary of Parameters
             context = {
-                'gameData': createBadgeList(gameData, retrievedBadges, db_badges),
+                'gameData': createBadgeList(gameData, retrievedBadges, db_badges, nonCanon),
                 'userName' : data['name'],
                 'userId' : data['id'],
                 'earnedDict' : retrievedBadges
