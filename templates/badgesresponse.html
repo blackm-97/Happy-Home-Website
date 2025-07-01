@@ -15,7 +15,8 @@
                     <div class="col">
                         <div class="card h-100 text-center mb-3 {% if not badge.collected %}bg-secondary text-light-emphasis{% endif %}" style="width: 18rem;">
                             <div class="card-body">
-                                <h5 class="card-title">{{badge.displayName}}</h5>
+                                <h5 class="card-title">{{badge.displayName}} <span class="badge rounded-pill bg-primary">{{badge.difficultyVal}}</span> </h5>
+                                
                                 <img class="card-img-top {% if not badge.collected %} opacity-25 {% endif %}" loading="lazy" src={{badge.imagePath}} alt="placeholder">
                                 <p class="card-text">{{badge.description}}</p>
                                 <div class="card-footer">

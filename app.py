@@ -107,8 +107,6 @@ def badges():
 
         retrievedBadges = getCollectedBadges(data['id'], db_badges)
 
-        print(retrievedBadges)
-
         #Dictionary of Parameters
         context = {
             'gameData': createBadgeList(gameData, retrievedBadges['data'], db_badges),
@@ -119,6 +117,7 @@ def badges():
 
         return render_template('badgesresponse.html', **context)
 
+        #TODO: Turn back into try-catch block
 
         # try:
         #     data = data[0]

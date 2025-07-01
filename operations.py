@@ -25,6 +25,8 @@ def createBadgeList(gameData, userBadges, databaseBadges):
             currDict['badges'] = []
             index += 1
 
+        badge.difficultyVal = getDifficultyFromNum(badge.difficultyVal)
+
         value = badgeDictionary.get(badge.id, None)
 
         if value:
@@ -37,3 +39,25 @@ def createBadgeList(gameData, userBadges, databaseBadges):
         res.append(currDict)
 
     return res
+
+def getDifficultyFromNum(num) -> str:
+    match num:
+        case 1:
+            return "Freebee"
+        case 2:
+            return "Easy"
+        case 3:
+            return "Intermediate"
+        case 4:
+            return "Difficult"
+        case 5:
+            return "Intense"
+        case 6:
+            return "Soul Melter"
+        case 7:
+            return "Nonsensical"
+        case 10:
+            return "Special"
+        case _:
+            return "Undefined"
+

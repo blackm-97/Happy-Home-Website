@@ -10,7 +10,7 @@ def badgeInfoMaker(db):
         displayName = db.Column(db.Text, nullable=False)
         description = db.Column(db.Text, nullable=False)
         imagePath = db.Column(db.Text, nullable=False, default='static/images/Cheese.png')
-        difficultyVal = db.Column(db.Integer, default=0)
+        difficultyVal = db.Column(db.Text, default=0)
         shadow = db.Column(db.Integer, nullable=False, default=0)
         gearName = db.Column(db.Text, nullable=False, default='None')
         noncanon = db.Column(db.Integer, nullable=False, default=0)
