@@ -30,10 +30,6 @@ def getCollectedBadges(userId, gameData):
     #
     badges_url = "https://badges.roblox.com/v1/users/" + str(userId) + "/badges/awarded-dates?badgeIds="
 
-    nonCanon = []
-    breakpoint = 4406520174507095
-    isNonCanon = False
-
     first = True
     for badge in gameData:
         if first:
@@ -42,12 +38,6 @@ def getCollectedBadges(userId, gameData):
         else:
             badges_url +=("," + str(badge.id) )
 
-        if badge.id == breakpoint:
-            isNonCanon = True
-        
-        if isNonCanon:
-            nonCanon.append(badge.to_dict())
-
     # Headers
     headers = {
         "Content-Type": "application/json"
@@ -55,7 +45,7 @@ def getCollectedBadges(userId, gameData):
 
     response = requests.get(badges_url, headers=headers)
     if response.status_code == 200:
-        return (response, nonCanon)
+        return response.json()
     else:
         #TODO: Brush this up, very messy
         return False
