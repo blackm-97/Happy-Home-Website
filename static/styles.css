@@ -1,6 +1,18 @@
     :root{
       --pumpkin: #FF802B;
       --dark-pumpkin: #81441b;
+
+      
+
+
+      --undefined:rgb(17, 17, 17);
+      --freebie:rgb(13, 105, 172);
+      --easy: rgb(31, 128, 29);
+      --intermed:rgb(194, 191, 31);
+      --difficult: rgb(255, 125, 0);
+      --intense:rgb(196, 40, 28);
+      --soul:rgb(107, 50, 124);
+      --nonsense:rgb(255, 0, 191);
     }
     
     .card-grid {
@@ -40,4 +52,43 @@
 
     .enter-block{
 
+    }
+
+
+    /* All custom difficulty colors */
+
+    .bg-Undefined{
+      background-color: var(--undefined);
+    }
+
+    .bg-Freebee{
+      background-color: var(--freebie);
+    }
+
+    .bg-Easy{
+      background-color: var(--easy);
+    }
+
+    .bg-Intermediate{
+      background-color: var(--intermed);
+    }
+
+    .bg-Difficult{
+      background-color: var(--difficult);
+    }
+
+    .bg-Intense{
+      background-color: var(--intense);
+    }
+
+    .bg-Soul-Melter{
+      background-color: var(--soul);
+    }
+
+    .bg-Nonsensical{
+      background-color: var(--nonsense);
+    }
+
+    .bg-Special{
+      background-image: linear-gradient(to bottom right, var(--freebie),var(--easy),var(--intermed),var(--difficult),var(--intense),var(--soul),var(--nonsense));
     }

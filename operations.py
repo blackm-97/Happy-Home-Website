@@ -53,7 +53,7 @@ def getDifficultyFromNum(num) -> str:
         case 5:
             return "Intense"
         case 6:
-            return "Soul Melter"
+            return "Soul-Melter"
         case 7:
             return "Nonsensical"
         case 10:
