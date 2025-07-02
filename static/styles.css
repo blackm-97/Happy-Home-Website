@@ -62,12 +62,18 @@
     .card {
       width: 100%;  /* Fills the 18rem min-width grid cell */
       height: 100%;
-      background-color: var(--tan) !important;
+      background-color: var(--dark-pumpkin) !important;
       border: 5px solid black !important;
     }
 
-    .card-head{
+    .card-stomach{
+      padding: 10px;
+      border-radius: 10px;
+      height: 100%;
+    }
 
+    .card-stomach-color{
+      background-color: var(--tan) !important;
     }
 
     .enter-block{
