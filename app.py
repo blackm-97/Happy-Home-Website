@@ -49,28 +49,16 @@ with app.app_context():
     badgeConstructor = badgeInfoMaker(db)
 
 @app.route('/')
-def home():
-    return redirect(url_for('cube'))
+def opener():
+    return render_template('opener.html')
 
 
 # The route() function of the Flask class is a decorator, 
 # which tells the application which URL should call 
 # the associated function.
-@app.route('/cube', methods=['GET', 'POST'])
-def cube():
-    if request.method == 'POST':
-        num = request.form.get('num')
-
-        if num.strip() == '':
-            return render_template("stringinput.html", message='No number entered. Please enter an integer')
-
-        try:
-            cubed = int(num)** 3
-            return render_template("answer.html", initialNum=num, cubedNum=cubed)
-        except:
-            return render_template("stringinput.html", message='Invalid input. Please enter a valid number.')
-    else:
-        return render_template("stringinput.html")
+@app.route('/home', methods=['GET', 'POST'])
+def home():
+    return render_template('home.html', error="User Not Found")
     
 
 #Handle if the user makes a badge request

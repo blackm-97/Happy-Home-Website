@@ -20,6 +20,11 @@
 
     }
 
+    .opener{
+      border: 10px solid var(--dark-pumpkin);
+      border-radius: 10px;
+    }
+
     .navbar{
       background-color: var(--pumpkin);
     }
@@ -58,6 +63,11 @@
       width: 100%;  /* Fills the 18rem min-width grid cell */
       height: 100%;
       background-color: var(--tan) !important;
+      border: 5px solid black !important;
+    }
+
+    .card-head{
+
     }
 
     .enter-block{
