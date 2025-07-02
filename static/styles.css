@@ -14,6 +14,11 @@
       --soul:rgb(107, 50, 124);
       --nonsense:rgb(255, 0, 191);
     }
+
+    body {
+      background-image: url("/static/images/HHBH_bg.png");
+      
+    }
     
     .card-grid {
       display: grid;
