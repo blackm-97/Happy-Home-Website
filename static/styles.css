@@ -57,6 +57,10 @@
 
     /* All custom difficulty colors */
 
+    .badge{
+      font-size: large !important;
+    }
+
     .bg-Undefined{
       background-color: var(--undefined);
     }
