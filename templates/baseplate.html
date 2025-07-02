@@ -15,7 +15,9 @@
         <header>
           <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="{{url_for('home')}}">
+            <img src="/static/images/HHBH_Logo.webp" width="77" height="28" class="d-inline-block align-top" alt="Happy Home Logo">
+          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -23,6 +25,7 @@
             <div class="navbar-nav">
               <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
               <a class="nav-link" href="{{url_for('badges')}}">Badge List</a>
+              <a class="nav-link" href=#>Contact</a>
             </div>
             <span class="navbar-text position-absolute top-50 start-50 translate-middle">
                 This website created by <a href="https://www.roblox.com/users/1761381026/profile" rel="author" target="_blank">RatGaming</a>
