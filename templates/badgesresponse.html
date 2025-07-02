@@ -1,8 +1,7 @@
 {% extends 'baseplate.html' %}
 {% block content %}
-    <header class="text-center">
-        <h2>Hello User: {{userName}}</h2>
-        <h2>Your ID is: {{userId}}</h2>
+    <header class="text-center m-4">
+        <h2>Browsing Badges For: {{userName}}</h2>
     </header>
     <!--Divide up badges by section here-->
     {%for section in gameData%}
