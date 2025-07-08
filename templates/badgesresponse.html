@@ -16,7 +16,12 @@
                             <div class="card-body p-2">
                                 <div class="card-stomach {% if badge.collected %}card-stomach-color{% endif %}">
                                     <div class="card-head">
-                                        <span class="badge rounded-pill bg-{{badge.difficultyVal}}">{{badge.difficultyVal}}</span>
+                                        <div class="d-flex position-relative" style="height: 25px">
+                                            <span class="badge rounded-pill bg-{{badge.difficultyVal}} position-absolute top-50 start-50 translate-middle">{{badge.difficultyVal}}</span>
+                                            {% if badge.shadow %} <span class="badge bg-dark ms-auto align-self-center">S</span>{% endif %}
+                                            {% if badge.noncanon %} <span class="badge bg-primary ms-auto align-self-center">N</span>{% endif %}
+                                            {% if badge.artifact %} <span class="badge bg-danger ms-auto align-self-center">A</span>{% endif %}
+                                        </div>
                                         <h5 class="card-title">{{badge.displayName}} </h5>
                                     </div>
                                 
