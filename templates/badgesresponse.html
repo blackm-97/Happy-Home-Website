@@ -1,9 +1,12 @@
 {% extends 'baseplate.html' %}
 {% block content %}
-    <header class="text-center m-4">
+    <header class="d-flex justify-content-evenly text-center m-4">
+        <!--Rarest Badges Go Here-->
         <h2>Browsing Badges For: {{userName}}</h2>
+        <audio controls autoplay>
+            <source src="/static/music/TrophyGallery.mp3" type="audio/mpeg">
+        </audio>
     </header>
-    <!--Divide up badges by section here-->
     {%for section in gameData%}
     <section class="">
         <h2 class="badge-section text-center m-3 p-3 bg-success bg-gradient border border-3 border-black rounded-3">{{section['sectionName']}}</h2>
@@ -16,17 +19,17 @@
                             <div class="card-body p-2">
                                 <div class="card-stomach {% if badge.collected %}card-stomach-color{% endif %}">
                                     <div class="card-head">
-                                        <div class="d-flex position-relative" style="height: 25px">
-                                            <span class="badge rounded-pill bg-{{badge.difficultyVal}} position-absolute top-50 start-50 translate-middle">{{badge.difficultyVal}}</span>
-                                            {% if badge.shadow %} <span class="badge bg-dark ms-auto align-self-center">S</span>{% endif %}
-                                            {% if badge.noncanon %} <span class="badge bg-primary ms-auto align-self-center">N</span>{% endif %}
-                                            {% if badge.artifact %} <span class="badge bg-danger ms-auto align-self-center">A</span>{% endif %}
-                                        </div>
+                                        <span class="badge rounded-pill bg-{{badge.difficultyVal}}">{{badge.difficultyVal}}</span>
                                         <h5 class="card-title">{{badge.displayName}} </h5>
                                     </div>
-                                
+                                    
                                     <img class="card-img-top {% if not badge.collected %} opacity-25 {% endif %}" loading="lazy" src={{badge.imagePath}} alt="placeholder">
                                     <p class="card-text">{{badge.description}}</p>
+                                    <div class="d-flex justify-content-end m-1">
+                                        {% if badge.shadow %} <span class="badge bg-dark tag m-1"><img class="tag-img" src="/static/images/ShadowSwirl.webp" alt="Shadow Tag"></span>{% endif %}
+                                        {% if badge.noncanon %} <span class="badge bg-primary tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="NonCanon Tag"></span>{% endif %}
+                                        {% if badge.artifact %} <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/CheeseHat.png" alt="Artifact Tag"></span>{% endif %}
+                                    </div>
                                     <div class="card-footer">
                                         Earned on: {{badge.awardedDate}}
                                     </div>

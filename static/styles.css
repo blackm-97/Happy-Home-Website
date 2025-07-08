@@ -80,6 +80,15 @@
       margin-top: 75px;
     }
 
+    .tag{
+      padding: 5px !important;
+    }
+
+    .tag-img{
+      width: 35px;
+      height: 35px;
+    }
+
 
     /* All custom difficulty colors */
 
