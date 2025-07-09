@@ -17,6 +17,7 @@ def badgeInfoMaker(db):
         artifact = db.Column(db.Integer, nullable=False, default=0)
         date_uploaded = db.Column(db.DateTime, nullable=False, default=datetime.now)
         order = db.Column(db.Integer)
+        collab = db.Column(db.Boolean)
         collected = False
         awardedDate = "N/A"
 

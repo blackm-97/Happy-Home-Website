@@ -59,7 +59,7 @@
                         <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/CheeseHat.png" alt="Artifact Tag"> </span> <span>-- Denotes a badge which gives an <b>Artifact.</b> These are special gears that can be used within the Nexus</span>
                     </p>
                     <p>
-
+                        <span class="badge collab tag m-1"><img class="tag-img" src="/static/images/CheeseHat.png" alt="Collab Tag"></span> <span>-- Denotes a Collab. This is given to badges that have a proper collab between games. </span>
                     </p>
                 </section>
             </div>
@@ -92,6 +92,7 @@
                                         {% if badge.shadow %} <span class="badge bg-dark tag m-1"><img class="tag-img" src="/static/images/ShadowSwirl.webp" alt="Shadow Tag"></span>{% endif %}
                                         {% if badge.noncanon %} <span class="badge bg-primary tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="NonCanon Tag"></span>{% endif %}
                                         {% if badge.artifact %} <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/CheeseHat.png" alt="Artifact Tag"></span>{% endif %}
+                                        {% if badge.collab %} <span class="badge collab tag m-1"><img class="tag-img" src="/static/images/CheeseHat.png" alt="Collab Tag"></span>{% endif %}
                                     </div>
                                     <div class="card-footer">
                                         Earned on: {{badge.awardedDate}}

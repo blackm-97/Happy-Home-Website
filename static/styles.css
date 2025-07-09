@@ -13,6 +13,7 @@
       --intense:rgb(196, 40, 28);
       --soul:rgb(107, 50, 124);
       --nonsense:rgb(255, 0, 191);
+      --collab: #550000;
     }
 
     body {
@@ -87,6 +88,10 @@
     .tag-img{
       width: 35px;
       height: 35px;
+    }
+
+    .collab{
+      background: var(--collab) !important;
     }
 
 
