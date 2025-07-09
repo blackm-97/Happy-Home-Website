@@ -13,6 +13,11 @@ from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 load_dotenv()
 
+from flask_wtf import FlaskForm
+from wtforms import StringField, validators, PasswordField, SubmitField
+from wtforms.validators import DataRequired, Email
+import email_validator
+
 import os
 
 
@@ -131,6 +136,10 @@ def badges():
         #     return render_template('badges.html', error=f"Internal Server Error: {e}")
     else:
         return render_template('badges.html')
+    
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
     
     
 if __name__ == '__main__':

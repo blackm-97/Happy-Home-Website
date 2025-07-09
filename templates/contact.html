@@ -1,0 +1,18 @@
+{% extends 'baseplate.html' %}
+{% block content %}
+     <section class="enter-block">
+        <form action="{{url_for('badges')}}" method='POST' class="text-center" onsubmit="startLoading(this);">
+            <h1 class="w-50 text-center m-auto mb-3">Found a bug, or just have a comment? Send me an email here and I will look at it when I can! </h1>
+            <div class="input-group mb-3 name-input  w-50 m-auto">
+                <input type="text" class="form-control" placeholder="Enter Message Here..." aria-label="Roblox Username" aria-describedby="basic-addon2"  name="R_Name" id="R_Name">
+                <div class="input-group-append enter-button">
+                    <button class="btn btn-outline-none" type="submit" value="submit"><img class="enter-img" src="/static/images/arrow-enter-svgrepo-com.svg" alt=""></button>
+                </div>
+            </div>
+        </form>
+        {% if error%}
+            <p class="text-center">{{error}}</p>
+         {%endif%}
+    </section>
+    <script src="/static/utilities.js" charset="utf-8"></script>
+{% endblock %}

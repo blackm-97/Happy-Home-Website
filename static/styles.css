@@ -94,6 +94,17 @@
       background: var(--collab) !important;
     }
 
+    .home{
+      max-width: 1250px;
+      border: 10px solid var(--dark-pumpkin);
+      border-radius: 10px;
+      background-color: #ebd9a7;
+    }
+
+    .banner{
+      height: 100px;
+    }
+
     /* Modal Styling */
 
     .modal-content{
