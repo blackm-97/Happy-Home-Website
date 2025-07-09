@@ -60,4 +60,3 @@ def getDifficultyFromNum(num) -> str:
             return "Special"
         case _:
             return "Undefined"
-
