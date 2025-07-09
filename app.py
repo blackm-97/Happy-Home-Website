@@ -16,7 +16,7 @@ load_dotenv()
 from flask_wtf import FlaskForm
 from wtforms import StringField, validators, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email
-import email_validator
+#import email_validator
 
 import os
 

@@ -14,6 +14,9 @@
       --soul:rgb(107, 50, 124);
       --nonsense:rgb(255, 0, 191);
       --collab: #550000;
+
+      --home-primary:#ebd9a7;
+      --home-secondary: #d8c677;
     }
 
     body {
@@ -65,12 +68,19 @@
       height: 100%;
       background-color: var(--dark-pumpkin) !important;
       border: 5px solid black !important;
+      box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
     .card-stomach{
       padding: 10px;
       border-radius: 10px;
       height: 100%;
+    }
+
+    .other-pages .card{
+      border: 5px solid var(--dark-pumpkin) !important;
+      background-color: var(--home-secondary) !important;
+      box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
     .card-stomach-color{
@@ -98,7 +108,7 @@
       max-width: 1250px;
       border: 10px solid var(--dark-pumpkin);
       border-radius: 10px;
-      background-color: #ebd9a7;
+      background-color: var(--home-primary);
     }
 
     .banner{

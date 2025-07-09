@@ -10,3 +10,8 @@ function startLoading(form){
 
   var audio = document.getElementById("browse_music");
   audio.volume = 0.25;
+
+  ScrollReveal().reveal('.card', {
+    delay: 100,
+    duration: 500,
+});
