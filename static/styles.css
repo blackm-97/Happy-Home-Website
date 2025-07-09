@@ -94,6 +94,16 @@
       background: var(--collab) !important;
     }
 
+    /* Modal Styling */
+
+    .modal-content{
+      background-color: var(--pumpkin)!important;
+    }
+
+    .modal-body{
+      background-image: url("/static/images/HHBH_bg.png");
+    }
+
 
     /* All custom difficulty colors */
 

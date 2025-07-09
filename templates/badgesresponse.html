@@ -3,7 +3,7 @@
     <header class="d-flex justify-content-evenly text-center m-4">
         <!--Rarest Badges Go Here-->
         <h2>Browsing Badges For: {{userName}}</h2>
-        <audio controls autoplay>
+        <audio controls autoplay id="browse_music">
             <source src="/static/music/TrophyGallery.mp3" type="audio/mpeg">
         </audio>
     </header>
@@ -13,59 +13,59 @@
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Badge Legend</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <section class="difficulties">
-                    <h3>Difficulties</h3>
-                    <p>
-                        <span class="badge rounded-pill bg-Freebee">Freebee</span> <span>-- Even someone with below room temperature IQ could get it.</span>
-                    </p>
-                    <p>
-                        <span class="badge rounded-pill bg-Easy">Easy</span> <span>-- Out in the open or otherwise easily accessible.</span>
-                    <p>
-                        <span class="badge rounded-pill bg-Intermediate">Intermediate</span> <span>-- It might take you a little while to get it, but it shouldn't be too hard.</span>
-                    </p>
-                    <p>
-                        <span class="badge rounded-pill bg-Difficult">Difficult</span> <span>-- This is where you'll have to start using your brain (or just have dedication.)</span>
-                    </p>
-                    <p>
-                        <span class="badge rounded-pill bg-Intense">Intense</span> <span>-- You're going to be here for a long time.</span>
-                    </p>
-                    <p>
-                        <span class="badge rounded-pill bg-Soul-Melter">Soul-Melter</span> <span>-- <i><b>Good luck.</b></i></span>
-                    </p>
-                    <p>
-                        <span class="badge rounded-pill bg-Nonsensical">Nonsensical</span> <span>-- I advise against attempting this. <i><b>It's going to hurt.</b></i></span>
-                    </p>
-                    <p>
-                        <span class="badge rounded-pill bg-Special">Special</span> <span>--  Multiple obtainment methods varying in difficulty</span>
-                    </p>
-                    <p>
-                        <span class="badge rounded-pill bg-Undefined">Undefined</span> <span>-- Hasn't been implemented yet.</span>
-                    </p>
-                </section>
-                <section class="tags">
-                    <h3>Tags</h3>
-                    <p>
-                        <span class="badge bg-dark tag m-1"><img class="tag-img" src="/static/images/ShadowSwirl.webp" alt="Shadow Tag"></span> <span>-- Denotes a Shadow Badge. These are shrouded in mystery, and unnatturally difficult. These badges do not count toward the badge total.</span>
-                    </p>
-                    <p>
-                        <span class="badge bg-primary tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="NonCanon Tag"></span> <span>-- Denotes a badge that does not count towards the badge total.</span>
-                    </p>
-                    <p>
-                        <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/CheeseHat.png" alt="Artifact Tag"> </span> <span>-- Denotes a badge which gives an <b>Artifact.</b> These are special gears that can be used within the Nexus</span>
-                    </p>
-                    <p>
-                        <span class="badge collab tag m-1"><img class="tag-img" src="/static/images/CheeseHat.png" alt="Collab Tag"></span> <span>-- Denotes a Collab. This is given to badges that have a proper collab between games. </span>
-                    </p>
-                </section>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Badge Legend</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <section class="difficulties">
+                        <h3>Difficulties</h3>
+                        <p>
+                            <span class="badge rounded-pill bg-Freebee">Freebee</span> <span>-- Even someone with below room temperature IQ could get it.</span>
+                        </p>
+                        <p>
+                            <span class="badge rounded-pill bg-Easy">Easy</span> <span>-- Out in the open or otherwise easily accessible.</span>
+                        <p>
+                            <span class="badge rounded-pill bg-Intermediate">Intermediate</span> <span>-- It might take you a little while to get it, but it shouldn't be too hard.</span>
+                        </p>
+                        <p>
+                            <span class="badge rounded-pill bg-Difficult">Difficult</span> <span>-- This is where you'll have to start using your brain (or just have dedication.)</span>
+                        </p>
+                        <p>
+                            <span class="badge rounded-pill bg-Intense">Intense</span> <span>-- You're going to be here for a long time.</span>
+                        </p>
+                        <p>
+                            <span class="badge rounded-pill bg-Soul-Melter">Soul-Melter</span> <span>-- <i><b>Good luck.</b></i></span>
+                        </p>
+                        <p>
+                            <span class="badge rounded-pill bg-Nonsensical">Nonsensical</span> <span>-- I advise against attempting this. <i><b>It's going to hurt.</b></i></span>
+                        </p>
+                        <p>
+                            <span class="badge rounded-pill bg-Special">Special</span> <span>--  Multiple obtainment methods varying in difficulty</span>
+                        </p>
+                        <p>
+                            <span class="badge rounded-pill bg-Undefined">Undefined</span> <span>-- Hasn't been implemented yet.</span>
+                        </p>
+                    </section>
+                    <section class="tags">
+                        <h3>Tags</h3>
+                        <p>
+                            <span class="badge bg-dark tag m-1"><img class="tag-img" src="/static/images/ShadowSwirl.webp" alt="Shadow Tag"></span> <span>-- Denotes a Shadow Badge. These are shrouded in mystery, and unnatturally difficult. These badges do not count toward the badge total.</span>
+                        </p>
+                        <p>
+                            <span class="badge bg-primary tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="NonCanon Tag"></span> <span>-- Denotes a badge that does not count towards the badge total.</span>
+                        </p>
+                        <p>
+                            <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/CheeseHat.png" alt="Artifact Tag"> </span> <span>-- Denotes a badge which gives an <b>Artifact.</b> These are special gears that can be used within the Nexus</span>
+                        </p>
+                        <p>
+                            <span class="badge collab tag m-1"><img class="tag-img" src="/static/images/Handshake.webp" alt="Collab Tag"></span> <span>-- Denotes a Collab. This is given to badges that have a proper collab between games. </span>
+                        </p>
+                    </section>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
@@ -92,7 +92,7 @@
                                         {% if badge.shadow %} <span class="badge bg-dark tag m-1"><img class="tag-img" src="/static/images/ShadowSwirl.webp" alt="Shadow Tag"></span>{% endif %}
                                         {% if badge.noncanon %} <span class="badge bg-primary tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="NonCanon Tag"></span>{% endif %}
                                         {% if badge.artifact %} <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/CheeseHat.png" alt="Artifact Tag"></span>{% endif %}
-                                        {% if badge.collab %} <span class="badge collab tag m-1"><img class="tag-img" src="/static/images/CheeseHat.png" alt="Collab Tag"></span>{% endif %}
+                                        {% if badge.collab %} <span class="badge collab tag m-1"><img class="tag-img" src="/static/images/Handshake.webp" alt="Collab Tag"></span>{% endif %}
                                     </div>
                                     <div class="card-footer">
                                         Earned on: {{badge.awardedDate}}
@@ -111,4 +111,5 @@
     <button type="button" class="btn btn-primary position-fixed m-4 bottom-0 end-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         Legend
     </button>
+    <script src="/static/utilities.js" charset="utf-8"></script>
 {% endblock%}

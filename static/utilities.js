@@ -7,3 +7,6 @@ function startLoading(form){
     img.alt = "Loading...";
     
 }
+
+  var audio = document.getElementById("browse_music");
+  audio.volume = 0.25;

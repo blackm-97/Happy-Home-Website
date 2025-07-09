@@ -7,7 +7,7 @@ def createBadgeList(gameData, userBadges, databaseBadges):
     for data in userBadges:
         badgeDictionary[data['badgeId']] = data['awardedDate']
 
-    sections = ["Main Hub", "Dream Island", "Depths of Void", "Arena", "Milestones", "Special", "Tom Cinematic Universe", "Kool Game Corner", "Extra"]
+    sections = ["Main Hub", "Dream Island", "Depths of Void", "Arena", "Milestones", "Special", "Tom Cinematic Universe", "Kool Games Korner", "Extra"]
     breakpoints = [19361395, 2124783685, 36731175871168, 2124980594, 2124943412, 2124827611, 2145442036, 2124801414, 2124493093]
     res = []
 
