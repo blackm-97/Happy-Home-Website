@@ -86,7 +86,7 @@
                                         <h5 class="card-title">{{badge.displayName}} </h5>
                                     </div>
                                     
-                                    <img class="card-img-top {% if not badge.collected %} opacity-25 {% endif %}" loading="lazy" src={{badge.imagePath}} alt="placeholder">
+                                    <img class="card-img-top {% if not badge.collected %} opacity-25 {% endif %}" loading="lazy" src={{badge.imagePath}} alt="placeholder"  width="242" height="242" >
                                     <p class="card-text">{{badge.description}}</p>
                                     <div class="d-flex justify-content-end m-1">
                                         {% if badge.shadow %} <span class="badge bg-dark tag m-1"><img class="tag-img" src="/static/images/ShadowSwirl.webp" alt="Shadow Tag"></span>{% endif %}
