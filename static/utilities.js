@@ -12,5 +12,5 @@ function startLoading(form){
   audio.volume = 0.25;
 
   ScrollReveal().reveal('.card', {
-    interval: 20
+    interval: 10
 });
