@@ -14,7 +14,7 @@ def badgeInfoMaker(db):
         shadow = db.Column(db.Integer, nullable=False, default=0)
         gearName = db.Column(db.Text, nullable=False, default='None')
         noncanon = db.Column(db.Integer, nullable=False, default=0)
-        artifact = db.Column(db.Integer, nullable=False, default=0)
+        artifact = db.Column(db.Text, nullable=True)
         date_uploaded = db.Column(db.DateTime, nullable=False, default=datetime.now)
         order = db.Column(db.Integer)
         collab = db.Column(db.Boolean)
