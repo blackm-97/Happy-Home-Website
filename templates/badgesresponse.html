@@ -41,7 +41,7 @@
                             <span class="badge rounded-pill bg-Nonsensical">Nonsensical</span> <span>-- I advise against attempting this. <i><b>It's going to hurt.</b></i></span>
                         </p>
                         <p>
-                            <span class="badge rounded-pill bg-Special">Special</span> <span>--  Multiple obtainment methods varying in difficulty</span>
+                            <span class="badge rounded-pill bg-Special">Special</span> <span>--  Varies in difficulty and/or has multiple obtainment methods.</span>
                         </p>
                         <p>
                             <span class="badge rounded-pill bg-Undefined">Undefined</span> <span>-- Hasn't been implemented yet.</span>
@@ -50,13 +50,16 @@
                     <section class="tags">
                         <h3>Tags</h3>
                         <p>
-                            <span class="badge bg-dark tag m-1"><img class="tag-img" src="/static/images/ShadowSwirl.webp" alt="Shadow Tag"></span> <span>-- Denotes a Shadow Badge. These are shrouded in mystery, and unnatturally difficult. These badges do not count toward the badge total.</span>
+                            <span class="badge bg-secondary tag m-1"><img class="tag-img" src="/static/images/Gear.webp" alt="Gear Tag"></span> <span>-- Denotes a badge that gives a Gear. These are items that can be used in the Happy Home realm.</span>
+                        </p>
+                        <p>
+                            <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/Warp.webp" alt="Artifact Tag"> </span> <span>-- Denotes a badge which gives an <b>Artifact.</b> These are special gears that can be used within the Nexus.</span>
                         </p>
                         <p>
                             <span class="badge bg-primary tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="NonCanon Tag"></span> <span>-- Denotes a badge that does not count towards the badge total.</span>
                         </p>
                         <p>
-                            <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/CheeseHat.png" alt="Artifact Tag"> </span> <span>-- Denotes a badge which gives an <b>Artifact.</b> These are special gears that can be used within the Nexus</span>
+                            <span class="badge bg-dark tag m-1"><img class="tag-img" src="/static/images/ShadowSwirl.webp" alt="Shadow Tag"></span> <span>-- Denotes a Shadow Badge. These are shrouded in mystery, and unnatturally difficult. These badges do not count toward the badge total.</span>
                         </p>
                         <p>
                             <span class="badge collab tag m-1"><img class="tag-img" src="/static/images/Handshake.webp" alt="Collab Tag"></span> <span>-- Denotes a Collab. This is given to badges that have a proper collab between games. </span>
@@ -89,9 +92,10 @@
                                     <img class="card-img-top {% if not badge.collected %} opacity-25 {% endif %}" loading="lazy" src={{badge.imagePath}} alt="placeholder"  width="242" height="242" >
                                     <p class="card-text">{{badge.description}}</p>
                                     <div class="d-flex justify-content-end m-1">
+                                        {% if badge.gearName %} <span class="badge bg-secondary tag m-1"><img class="tag-img" src="/static/images/Gear.webp" alt="Gear Tag"></span>{% endif %}
                                         {% if badge.shadow %} <span class="badge bg-dark tag m-1"><img class="tag-img" src="/static/images/ShadowSwirl.webp" alt="Shadow Tag"></span>{% endif %}
                                         {% if badge.noncanon %} <span class="badge bg-primary tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="NonCanon Tag"></span>{% endif %}
-                                        {% if badge.artifact %} <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/CheeseHat.png" alt="Artifact Tag"></span>{% endif %}
+                                        {% if badge.artifact %} <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/Warp.webp" alt="Artifact Tag"></span>{% endif %}
                                         {% if badge.collab %} <span class="badge collab tag m-1"><img class="tag-img" src="/static/images/Handshake.webp" alt="Collab Tag"></span>{% endif %}
                                     </div>
                                     <div class="card-footer">
