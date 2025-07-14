@@ -24,15 +24,6 @@
 
     }
 
-    .progress{
-      max-width: 1000px;
-      
-    }
-
-    .progress-bar{
-      width: 20%;
-    }
-
     .opener{
       border: 10px solid var(--dark-pumpkin);
       border-radius: 10px;
@@ -132,6 +123,21 @@
 
     .modal-body{
       background-image: url("/static/images/HHBH_bg.png");
+    }
+
+    /* Progress Bar */
+
+    .progress-bar-container{
+      width: 70%;
+      
+    }
+
+    .progress{
+      width: 100%;
+    }
+
+    .progress-bar{
+      width: 20%;
     }
 
 

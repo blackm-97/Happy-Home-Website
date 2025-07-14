@@ -9,12 +9,14 @@
         </audio>
     </header>
     
-    <div class="progress text-center m-auto" role="progressbar" aria-label="Progress Bar" aria-valuenow="{{gameData['totFoundBadges']}}" aria-valuemin="0" aria-valuemax="{{gameData['totBadges']}}">
-        <div class="progress-bar progress-bar-striped progress-bar-animated"> {{gameData['totFoundBadges']}} / {{gameData['totBadges']}}</div>
-    </div>
+    <div class="progress-bar-container d-flex m-auto flex-column justify-content-center align-items-center">
+        <div class="progress text-center m-3" role="progressbar" aria-label="Progress Bar" aria-valuenow="{{gameData['totFoundBadges']}}" aria-valuemin="0" aria-valuemax="{{gameData['totBadges']}}" style="height: 50px">
+            <div class="progress-bar progress-bar-striped progress-bar-animated"> {{gameData['totFoundBadges']}} / {{gameData['totBadges']}}</div>
+        </div>
 
-    <div class="progress text-center m-auto" role="progressbar" aria-label="Progress Bar" aria-valuenow="{{gameData['totFoundBadges']}}" aria-valuemin="0" aria-valuemax="{{gameData['totBadges']}}">
-        <div class="progress-bar progress-bar-striped progress-bar-animated"> {{gameData['foundCanonBadges']}} / {{gameData['canonBadges']}}</div>
+        <div class="progress text-center m-3" role="progressbar" aria-label="Progress Bar" aria-valuenow="{{gameData['totFoundBadges']}}" aria-valuemin="0" aria-valuemax="{{gameData['totBadges']}}">
+            <div class="progress-bar progress-bar-striped progress-bar-animated"> {{gameData['foundCanonBadges']}} / {{gameData['canonBadges']}}</div>
+        </div>
     </div>
 
 
