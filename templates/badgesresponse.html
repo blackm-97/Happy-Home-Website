@@ -50,10 +50,10 @@
                     <section class="tags">
                         <h3>Tags</h3>
                         <p>
-                            <span class="badge bg-secondary tag m-1"><img class="tag-img" src="/static/images/Gear.webp" alt="Gear Tag"></span> <span>-- Denotes a badge that gives a Gear. These are items that can be used in the Happy Home realm.</span>
+                            <span class="badge bg-secondary tag m-1" data-bs-toggle="tooltip" title="This is where the Gear name would show up" data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Gear.webp" alt="Gear Tag"></span> <span>-- Denotes a badge that gives a Gear. These are items that can be used in the Happy Home realm. Hover over the icon for a moment to see the name of the given gear.</span>
                         </p>
                         <p>
-                            <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/Warp.webp" alt="Artifact Tag"> </span> <span>-- Denotes a badge which gives an <b>Artifact.</b> These are special gears that can be used within the Nexus.</span>
+                            <span class="badge bg-danger tag m-1" data-bs-toggle="tooltip" title="This is where the Artifact name would show up" data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Warp.webp" alt="Artifact Tag"> </span> <span>-- Denotes a badge which gives an <b>Artifact.</b> These are special gears that can be used within the Nexus. Hover over the icon for a moment to see the name of the given gear.</span>
                         </p>
                         <p>
                             <span class="badge bg-primary tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="NonCanon Tag"></span> <span>-- Denotes a badge that does not count towards the badge total.</span>
@@ -92,10 +92,10 @@
                                     <img class="card-img-top {% if not badge.collected %} opacity-25 {% endif %}" loading="lazy" src={{badge.imagePath}} alt="placeholder"  width="242" height="242" >
                                     <p class="card-text">{{badge.description}}</p>
                                     <div class="d-flex justify-content-end m-1">
-                                        {% if badge.gearName %} <span class="badge bg-secondary tag m-1"><img class="tag-img" src="/static/images/Gear.webp" alt="Gear Tag"></span>{% endif %}
+                                        {% if badge.gearName %} <span class="badge bg-secondary tag m-1" data-bs-toggle="tooltip" title="{{badge.gearName}}" data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Gear.webp" alt="Gear Tag"></span>{% endif %}
                                         {% if badge.shadow %} <span class="badge bg-dark tag m-1"><img class="tag-img" src="/static/images/ShadowSwirl.webp" alt="Shadow Tag"></span>{% endif %}
                                         {% if badge.noncanon %} <span class="badge bg-primary tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="NonCanon Tag"></span>{% endif %}
-                                        {% if badge.artifact %} <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/Warp.webp" alt="Artifact Tag"></span>{% endif %}
+                                        {% if badge.artifact %} <span class="badge bg-danger tag m-1" data-bs-toggle="tooltip" title="{{badge.artifact}}" data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Warp.webp" alt="Artifact Tag"></span>{% endif %}
                                         {% if badge.collab %} <span class="badge collab tag m-1"><img class="tag-img" src="/static/images/Handshake.webp" alt="Collab Tag"></span>{% endif %}
                                     </div>
                                     <div class="card-footer">
@@ -116,4 +116,10 @@
         Legend
     </button>
     <script src="/static/utilities.js" charset="utf-8"></script>
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
 {% endblock%}
