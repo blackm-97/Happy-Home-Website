@@ -102,7 +102,7 @@ def badges():
 
         #Dictionary of Parameters
         context = {
-            'gameData': createBadgeList(gameData, retrievedBadges['data'], db_badges),
+            'gameData': createBadgeList(retrievedBadges['data'], db_badges),
             'userName' : data['name'],
             'userId' : data['id'],
             'earnedDict' : retrievedBadges

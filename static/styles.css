@@ -24,6 +24,15 @@
 
     }
 
+    .progress{
+      max-width: 1000px;
+      
+    }
+
+    .progress-bar{
+      width: 20%;
+    }
+
     .opener{
       border: 10px solid var(--dark-pumpkin);
       border-radius: 10px;
