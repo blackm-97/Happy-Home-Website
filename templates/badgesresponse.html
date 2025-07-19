@@ -2,20 +2,22 @@
 {% block content %}
     <header class="d-flex justify-content-evenly text-center m-4">
         <!--Rarest Badges Go Here-->
-
+        <h2>
+            Total Badges Found: {{gameData['totFoundBadges']}} / {{gameData['totBadges']}}
+        </h2>
         <h2>Browsing Badges For: {{userName}}</h2>
         <audio controls autoplay id="browse_music">
             <source src="/static/music/TrophyGallery.mp3" type="audio/mpeg">
         </audio>
     </header>
-    
-    <div class="progress-bar-container d-flex m-auto flex-column justify-content-center align-items-center">
-        <div class="progress text-center m-3" role="progressbar" aria-label="Progress Bar" aria-valuenow="{{gameData['totFoundBadges']}}" aria-valuemin="0" aria-valuemax="{{gameData['totBadges']}}" style="height: 50px">
-            <div class="progress-bar progress-bar-striped progress-bar-animated"> {{gameData['totFoundBadges']}} / {{gameData['totBadges']}}</div>
-        </div>
 
-        <div class="progress text-center m-3" role="progressbar" aria-label="Progress Bar" aria-valuenow="{{gameData['totFoundBadges']}}" aria-valuemin="0" aria-valuemax="{{gameData['totBadges']}}">
-            <div class="progress-bar progress-bar-striped progress-bar-animated"> {{gameData['foundCanonBadges']}} / {{gameData['canonBadges']}}</div>
+    <div class="progress-bar-container d-flex m-auto flex-column justify-content-center align-items-center">
+        <!-- <div class="progress text-center m-3" role="progressbar" aria-label="Progress Bar" aria-valuenow="{{gameData['totFoundBadges']}}" aria-valuemin="0" aria-valuemax="{{gameData['totBadges']}}" style="height: 50px;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: {{ gameData['badgePercent'] }}%;"> {{gameData['totFoundBadges']}} / {{gameData['totBadges']}}</div>
+        </div> -->
+
+        <div class="progress text-center m-3" role="progressbar" aria-label="Progress Bar" aria-valuenow="{{gameData['foundCanonBadges']}}" aria-valuemin="0" aria-valuemax="{{gameData['canonBadges']}}" style="height: 50px;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: {{ gameData['foundPercent'] }}%;"> {{gameData['foundCanonBadges']}} / {{gameData['canonBadges']}} Canon Badges Found</div>
         </div>
     </div>
 
@@ -67,7 +69,7 @@
                             <span class="badge bg-danger tag m-1" data-bs-toggle="tooltip" title="This is where the Artifact name would show up" data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Warp.webp" alt="Artifact Tag"> </span> <span>-- Denotes a badge which gives an <b>Artifact.</b> These are special gears that can be used within the Nexus. Hover over the icon for a moment to see the name of the given gear.</span>
                         </p>
                         <p>
-                            <span class="badge bg-primary tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="NonCanon Tag"></span> <span>-- Denotes a badge that does not count towards the badge total.</span>
+                            <span class="badge bg-primary tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="NonCanon Tag"></span> <span>-- Denotes a badge is considered <b><i>Non-canon,</i></b> and does not add to the canonical badge total</span>
                         </p>
                         <p>
                             <span class="badge bg-dark tag m-1"><img class="tag-img" src="/static/images/ShadowSwirl.webp" alt="Shadow Tag"></span> <span>-- Denotes a Shadow Badge. These are shrouded in mystery, and unnatturally difficult. These badges do not count toward the badge total.</span>

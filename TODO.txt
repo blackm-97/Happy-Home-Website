@@ -1,0 +1,4 @@
+1. Get a working Contact Page
+2. Fix placeholder title page image
+3. Get progress bars working
+4. Fanart Page

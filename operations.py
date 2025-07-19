@@ -16,8 +16,10 @@ def createBadgeList(userBadges, databaseBadges):
     gameData['totBadges'] = 0
     gameData['totFoundBadges'] = 0
     gameData['badgePercent'] = 0
+
     gameData['canonBadges'] = 0
     gameData['foundCanonBadges'] = 0
+    gameData['foundPercent'] = 0
 
     #List to populate with badges in sections
     res = []
@@ -60,7 +62,13 @@ def createBadgeList(userBadges, databaseBadges):
         res.append(currDict)
 
     gameData['badgeList'] = res
-    gameData['badgePercent'] = (( gameData['totBadges'] / gameData['totFoundBadges']) * 100)
+    if gameData['totBadges'] == 0 or gameData['totFoundBadges'] == 0:
+        gameData['badgePercent'] = 0
+        gameData['foundPercent'] = 0
+    else:
+        gameData['badgePercent'] = max(0,  min((gameData['totFoundBadges'] / gameData['totBadges']) * 100, 100))
+        gameData['foundPercent'] = max(0, min(( gameData['foundCanonBadges'] / gameData['canonBadges']) * 100, 100))
+
     return gameData
 
 def getDifficultyFromNum(num) -> str:
