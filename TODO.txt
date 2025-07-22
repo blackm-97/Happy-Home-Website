@@ -2,3 +2,4 @@
 2. Fix placeholder title page image
 3. Get progress bars working
 4. Fanart Page
+    4.1. Supabase fanart database
