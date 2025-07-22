@@ -40,8 +40,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Avoids a warning
 
 # Create SQLAlchemy instance
-db = SQLAlchemy(app)
-
+db = SQLAlchemy(app)    
 
 port_number = 5000
 
@@ -143,7 +142,7 @@ def contact():
 
 @app.route('/fanart')
 def fanart():
-    return render_template('fanart.html')
+    return render_template('fanart.html', artData = 'Placeholder')
     
     
 if __name__ == '__main__':
