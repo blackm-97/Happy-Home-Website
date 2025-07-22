@@ -140,6 +140,10 @@ def badges():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+@app.route('/fanart')
+def fanart():
+    return render_template('fanart.html')
     
     
 if __name__ == '__main__':
