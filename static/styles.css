@@ -43,6 +43,11 @@
       border-radius: 2em;
     } */
 
+    .fanart-title{
+        -webkit-text-stroke: 1px black;
+        -webkit-text-fill-color: white;
+    }
+
     .name-input{
       border: 4mm solid var(--pumpkin);
       border-radius: 2em;

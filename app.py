@@ -8,6 +8,7 @@ from operations import *
 from flask_bootstrap import Bootstrap
 
 from models.badgeModel import badgeInfoMaker
+from models.fanartModel import fanartInfoMaker
 
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
@@ -49,8 +50,10 @@ universe_id = 24833080
 
 #Gets badges from the database on spinup since they are not changing
 badgeConstructor = None
+fanartConstructor = None
 with app.app_context():
     badgeConstructor = badgeInfoMaker(db)
+    fanartConstructor = fanartInfoMaker(db)
 
 @app.route('/')
 def opener():
@@ -142,7 +145,7 @@ def contact():
 
 @app.route('/fanart')
 def fanart():
-    return render_template('fanart.html', artData = 'Placeholder')
+    return render_template('fanart.html', artData = fanartConstructor.query.all())
     
     
 if __name__ == '__main__':
