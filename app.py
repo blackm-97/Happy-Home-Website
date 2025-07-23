@@ -92,50 +92,28 @@ def badges():
         if len(data) == 0:
             return render_template('badges.html', error="User Not Found")
         
-        data = data[0]
-        #We will have to do much more for comparing badges to users current badges
+        try:
+            data = data[0]
+            #We will have to do much more for comparing badges to users current badges
 
-        gameData = getGameBadges()
-        gameData = gameData.json()['data']
+            gameData = getGameBadges()
+            gameData = gameData.json()['data']
 
-        db_badges = badgeConstructor.query.order_by(badgeConstructor.order.asc()).all()
+            db_badges = badgeConstructor.query.order_by(badgeConstructor.order.asc()).all()
 
-        retrievedBadges = getCollectedBadges(data['id'], db_badges)
+            retrievedBadges = getCollectedBadges(data['id'], db_badges)
 
-        #Dictionary of Parameters
-        context = {
-            'gameData': createBadgeList(retrievedBadges['data'], db_badges),
-            'userName' : data['name'],
-            'userId' : data['id'],
-            'earnedDict' : retrievedBadges
-        }
+            #Dictionary of Parameters
+            context = {
+                'gameData': createBadgeList(retrievedBadges['data'], db_badges),
+                'userName' : data['name'],
+                'userId' : data['id'],
+                'earnedDict' : retrievedBadges
+            }
 
-        return render_template('badgesresponse.html', **context)
-
-        #TODO: Turn back into try-catch block
-
-        # try:
-        #     data = data[0]
-        #     #We will have to do much more for comparing badges to users current badges
-
-        #     gameData = getGameBadges()
-        #     gameData = gameData.json()['data']
-
-        #     db_badges = badgeConstructor.query.order_by(badgeConstructor.order.asc()).all()
-
-        #     retrievedBadges = getCollectedBadges(data['id'], db_badges)
-
-        #     #Dictionary of Parameters
-        #     context = {
-        #         'gameData': createBadgeList(gameData, retrievedBadges, db_badges),
-        #         'userName' : data['name'],
-        #         'userId' : data['id'],
-        #         'earnedDict' : retrievedBadges
-        #     }
-
-        #     return render_template('badgesresponse.html', **context)
-        # except Exception as e:
-        #     return render_template('badges.html', error=f"Internal Server Error: {e}")
+            return render_template('badgesresponse.html', **context)
+        except Exception as e:
+            return render_template('badges.html', error=f"Internal Server Error: {e}")
     else:
         return render_template('badges.html')
     
@@ -151,4 +129,4 @@ def fanart():
 if __name__ == '__main__':
     with app.app_context():  # Needed for DB operations
         db.create_all()      # Creates the database and tables
-    app.run(debug=True, port=port_number)
+    app.run()
