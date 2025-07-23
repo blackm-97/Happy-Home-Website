@@ -21,7 +21,9 @@
 
     body {
       background-image: url("/static/images/HHBH_bg.png");
-
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     .opener{
@@ -118,6 +120,12 @@
 
     .banner{
       height: 100px;
+    }
+
+    .footer{
+      background-color: var(--pumpkin);
+      height: 100px;
+      margin-top: auto;
     }
 
     /* Modal Styling */
