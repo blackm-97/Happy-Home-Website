@@ -28,9 +28,6 @@
               <a class="nav-link" href="{{url_for('badges')}}">Badge List</a>
               <a class="nav-link" href="{{url_for('fanart')}}">Fanart</a>
             </div>
-            <span class="navbar-text position-absolute top-50 start-50 translate-middle">
-                This website created by <a href="https://www.roblox.com/users/1761381026/profile" rel="author" target="_blank">RatGaming</a>
-            </span>
           </div>
         </div>
       </nav>
@@ -39,8 +36,11 @@
          {% block content %}
          {% endblock %}
         </main>
-        <footer class="footer">
-          <p class="text-center m-1">
+        <footer class="footer d-flex justify-content-around align-items-center">
+          <p class="m-1">
+            This website created by <a href="https://www.roblox.com/users/1761381026/profile" rel="author" target="_blank">RatGaming</a>
+          </p>
+          <p class="m-1">
             Have a question or comment? Get in contact with me at ratemailing@gmail.com
           </p>
         </footer>
