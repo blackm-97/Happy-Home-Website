@@ -22,6 +22,9 @@ def createBadgeList(userBadges, databaseBadges):
     gameData['foundPercent'] = 0
 
     gameData['shadowBadges'] = 0
+    gameData['shadowCollected'] = 0
+    gameData['progressDisplay'] = "primary"
+
     #List to populate with badges in sections
     res = []
 
@@ -46,6 +49,9 @@ def createBadgeList(userBadges, databaseBadges):
         if not (badge.noncanon or badge.shadow):
                 gameData['canonBadges'] += 1
 
+        if badge.shadow:
+            gameData['shadowBadges'] += 1
+
         #Check if we have found a badge
         value = badgeDictionary.get(badge.id, None)
         if value:
@@ -57,7 +63,7 @@ def createBadgeList(userBadges, databaseBadges):
                 gameData['foundCanonBadges'] += 1
 
             if badge.shadow:
-                gameData['shadowBadges'] += 1
+                gameData['shadowCollected'] += 1
 
         gameData['totBadges'] += 1
         currDict['badges'].append(badge)
@@ -73,7 +79,23 @@ def createBadgeList(userBadges, databaseBadges):
         gameData['badgePercent'] = max(0,  min((gameData['totFoundBadges'] / gameData['totBadges']) * 100, 100))
         gameData['foundPercent'] = max(0, min(( gameData['foundCanonBadges'] / gameData['canonBadges']) * 100, 100))
 
+
+    #Calculate Progress Display
+    shadow = False
+    completionist = False
+    if gameData['canonBadges'] == gameData['foundCanonBadges']:
+        gameData['progressDisplay'] = "success"
+        completionist = True
+
+    if gameData['shadowBadges'] == gameData['shadowCollected']:
+        gameData['progressDisplay'] = "dark"
+        shadow = True
+
+    if shadow and completionist:
+        gameData['progressDisplay'] = "warning"
+
     return gameData
+
 
 def getDifficultyFromNum(num) -> str:
     match num:

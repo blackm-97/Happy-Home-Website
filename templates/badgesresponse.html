@@ -17,7 +17,7 @@
         </div> -->
 
         <div class="progress text-center m-3" role="progressbar" aria-label="Progress Bar" aria-valuenow="{{gameData['foundCanonBadges']}}" aria-valuemin="0" aria-valuemax="{{gameData['canonBadges']}}" style="height: 50px;">
-            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: {{ gameData['foundPercent'] }}%;"> [{{gameData['foundCanonBadges']}} / {{gameData['canonBadges']}}] + {{gameData['shadowBadges']}} Completionist Badges</div>
+            <div class="progress-bar bg-{{gameData['progressDisplay']}} progress-bar-striped progress-bar-animated" style="width: {{ gameData['foundPercent'] }}%;"> [{{gameData['foundCanonBadges']}} / {{gameData['canonBadges']}}] + {{gameData['shadowCollected']}} Completionist Badges</div>
         </div>
     </div>
 
