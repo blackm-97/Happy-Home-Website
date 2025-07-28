@@ -201,5 +201,5 @@
     }
 
     .bg-Special{
-      background-image: linear-gradient(to bottom right, var(--freebie),var(--easy),var(--intermed),var(--difficult),var(--intense),var(--soul),var(--nonsense));
+      background-image: linear-gradient(to bottom right, var(--freebie),var(--easy),var(--intermed),var(--difficult),var(--intense),var(--soul),var(--nonsense)) !important;
     }

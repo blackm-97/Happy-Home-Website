@@ -1,3 +1,5 @@
+import models.badgeNamestoNumbers as Badges
+
 #Adds more info into the game data for the frontend to use
 def createBadgeList(userBadges, databaseBadges):
 
@@ -23,7 +25,9 @@ def createBadgeList(userBadges, databaseBadges):
 
     gameData['shadowBadges'] = 0
     gameData['shadowCollected'] = 0
+
     gameData['progressDisplay'] = "primary"
+    gameData['progressBorder'] = False
 
     #List to populate with badges in sections
     res = []
@@ -84,17 +88,45 @@ def createBadgeList(userBadges, databaseBadges):
     shadow = False
     completionist = False
     if gameData['canonBadges'] == gameData['foundCanonBadges']:
-        gameData['progressDisplay'] = "success"
         completionist = True
 
     if gameData['shadowBadges'] == gameData['shadowCollected']:
-        gameData['progressDisplay'] = "dark"
         shadow = True
 
     if shadow and completionist:
-        gameData['progressDisplay'] = "warning"
+        gameData['progressBorder'] = True
+
+    gameData['progressDisplay'] = CalculateEligability(badgeDictionary, shadow)
 
     return gameData
+
+
+#Badges Needed to be eligable
+badgeNames = Badges.BadgeNames
+GOLDEN_ELIGABILITY = [badgeNames.GOLDEN_CHEESE.value]
+ULTIMATE_ELIGABILITY = [badgeNames.SHADOW_HEADBAND.value]
+INFERNAL_ELIGABILITY = [badgeNames.BAD_TO_THE_BONE.value, badgeNames.AWAKENED.value, badgeNames.FOUND.value, badgeNames.EGG_HUNTER.value]
+
+#Calculates role eligability for certain ranks in the group
+def CalculateEligability(collectedBadges, shadowFound):
+    for b in GOLDEN_ELIGABILITY:
+        print(b)
+        if b not in collectedBadges:
+            return "primary"
+    
+    for b in ULTIMATE_ELIGABILITY:
+        if b not in collectedBadges:
+            return "warning"
+        
+    for b in INFERNAL_ELIGABILITY:
+        if b not in collectedBadges:
+            return "info"
+        
+    if not shadowFound:
+        return "danger"
+    
+    return "dark"
+
 
 
 def getDifficultyFromNum(num) -> str:

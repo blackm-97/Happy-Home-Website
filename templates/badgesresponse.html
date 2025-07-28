@@ -11,7 +11,7 @@
         </audio>
     </header>
 
-    <div class="progress-bar-container d-flex m-auto flex-column justify-content-center align-items-center">
+    <div class="progress-bar-container d-flex m-auto flex-column justify-content-center align-items-center {% if gameData['progressBorder'] %}bg-Special pe-3 ps-3 rounded-3{% endif %}">
         <!-- <div class="progress text-center m-3" role="progressbar" aria-label="Progress Bar" aria-valuenow="{{gameData['totFoundBadges']}}" aria-valuemin="0" aria-valuemax="{{gameData['totBadges']}}" style="height: 50px;">
             <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: {{ gameData['badgePercent'] }}%;"> {{gameData['totFoundBadges']}} / {{gameData['totBadges']}}</div>
         </div> -->
