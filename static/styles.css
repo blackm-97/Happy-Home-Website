@@ -19,6 +19,10 @@
       --home-secondary: #d8c677;
     }
 
+    html{
+      background-color: var(--pumpkin);
+    }
+
     body {
       background-image: url("/static/images/HHBH_bg.png");
       min-height: 100vh;
