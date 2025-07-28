@@ -50,7 +50,7 @@ def createBadgeList(userBadges, databaseBadges):
 
         badge.difficultyVal = getDifficultyFromNum(badge.difficultyVal)
 
-        if not (badge.noncanon or badge.shadow):
+        if not (badge.noncanon or badge.shadow or badge.extra):
                 gameData['canonBadges'] += 1
 
         if badge.shadow:
@@ -61,20 +61,23 @@ def createBadgeList(userBadges, databaseBadges):
         if value:
             badge.collected = True
             badge.awardedDate = value[0:10]
-            gameData['totFoundBadges'] += 1
+            if not badge.extra:
+                gameData['totFoundBadges'] += 1
 
-            if not (badge.noncanon or badge.shadow):
+            if not (badge.noncanon or badge.shadow or badge.extra):
                 gameData['foundCanonBadges'] += 1
 
             if badge.shadow:
                 gameData['shadowCollected'] += 1
 
-        gameData['totBadges'] += 1
+        if not badge.extra:
+            gameData['totBadges'] += 1
         currDict['badges'].append(badge)
 
     if currDict:
         res.append(currDict)
 
+    #Calculate badge percent
     gameData['badgeList'] = res
     if gameData['totBadges'] == 0 or gameData['totFoundBadges'] == 0:
         gameData['badgePercent'] = 0

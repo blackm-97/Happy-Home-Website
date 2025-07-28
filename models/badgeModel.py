@@ -18,6 +18,7 @@ def badgeInfoMaker(db):
         date_uploaded = db.Column(db.DateTime, nullable=False, default=datetime.now)
         order = db.Column(db.Integer)
         collab = db.Column(db.Boolean)
+        extra = db.Column(db.Boolean)
         collected = False
         awardedDate = "N/A"
 
