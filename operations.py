@@ -21,6 +21,7 @@ def createBadgeList(userBadges, databaseBadges):
     gameData['foundCanonBadges'] = 0
     gameData['foundPercent'] = 0
 
+    gameData['shadowBadges'] = 0
     #List to populate with badges in sections
     res = []
 
@@ -54,6 +55,9 @@ def createBadgeList(userBadges, databaseBadges):
 
             if not (badge.noncanon or badge.shadow):
                 gameData['foundCanonBadges'] += 1
+
+            if badge.shadow:
+                gameData['shadowBadges'] += 1
 
         gameData['totBadges'] += 1
         currDict['badges'].append(badge)

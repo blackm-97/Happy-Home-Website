@@ -2,10 +2,10 @@
 {% block content %}
     <header class="d-flex justify-content-evenly text-center m-4">
         <!--Rarest Badges Go Here-->
-        <h2>
-            Total Badges Found: {{gameData['totFoundBadges']}} / {{gameData['totBadges']}}
+        <h2 class="h2">
+            Total Badges: {{gameData['totFoundBadges']}} / {{gameData['totBadges']}}
         </h2>
-        <h2>Browsing Badges For: {{userName}}</h2>
+        <h2 class="h2">Browsing Badges For: {{userName}}</h2>
         <audio controls autoplay id="browse_music">
             <source src="/static/music/TrophyGallery.mp3" type="audio/mpeg">
         </audio>
@@ -17,7 +17,7 @@
         </div> -->
 
         <div class="progress text-center m-3" role="progressbar" aria-label="Progress Bar" aria-valuenow="{{gameData['foundCanonBadges']}}" aria-valuemin="0" aria-valuemax="{{gameData['canonBadges']}}" style="height: 50px;">
-            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: {{ gameData['foundPercent'] }}%;"> {{gameData['foundCanonBadges']}} / {{gameData['canonBadges']}} Completionist Badges Found</div>
+            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: {{ gameData['foundPercent'] }}%;"> [{{gameData['foundCanonBadges']}} / {{gameData['canonBadges']}}] + {{gameData['shadowBadges']}} Completionist Badges</div>
         </div>
     </div>
 
