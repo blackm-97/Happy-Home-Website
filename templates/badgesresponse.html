@@ -17,7 +17,7 @@
         </div> -->
 
         <div class="progress text-center m-3" role="progressbar" aria-label="Progress Bar" aria-valuenow="{{gameData['foundCanonBadges']}}" aria-valuemin="0" aria-valuemax="{{gameData['canonBadges']}}" style="height: 50px;">
-            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: {{ gameData['foundPercent'] }}%;"> {{gameData['foundCanonBadges']}} / {{gameData['canonBadges']}} Canon Badges Found</div>
+            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: {{ gameData['foundPercent'] }}%;"> {{gameData['foundCanonBadges']}} / {{gameData['canonBadges']}} Completionist Badges Found</div>
         </div>
     </div>
 
@@ -48,10 +48,10 @@
                             <span class="badge rounded-pill bg-Intense">Intense</span> <span>-- You're going to be here for a long time.</span>
                         </p>
                         <p>
-                            <span class="badge rounded-pill bg-Soul-Melter">Soul-Melter</span> <span>-- <i><b>Good luck.</b></i></span>
+                            <span class="badge rounded-pill bg-Soul-Melter">Soul-Melter</span> <span>-- <i>Good luck.</i></span>
                         </p>
                         <p>
-                            <span class="badge rounded-pill bg-Nonsensical">Nonsensical</span> <span>-- I advise against attempting this. <i><b>It's going to hurt.</b></i></span>
+                            <span class="badge rounded-pill bg-Nonsensical">Nonsensical</span> <span>-- I advise against attempting this. <i>It's going to hurt.</i></span>
                         </p>
                         <p>
                             <span class="badge rounded-pill bg-Special">Special</span> <span>--  Varies in difficulty and/or has multiple obtainment methods.</span>
@@ -63,13 +63,13 @@
                     <section class="tags">
                         <h3>Tags</h3>
                         <p>
-                            <span class="badge bg-secondary tag m-1" data-bs-toggle="tooltip" title="This is where the Gear name would show up" data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Gear.webp" alt="Gear Tag"></span> <span>-- Denotes a badge that gives a Gear. These are items that can be used in the Happy Home realm. Hover over the icon for a moment to see the name of the given gear.</span>
+                            <span class="badge gear tag m-1" data-bs-toggle="tooltip" title="This is where the Gear name would show up" data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Gear.webp" alt="Gear Tag"></span> <span>-- Denotes a badge that gives a Gear. These are items that can be used in the Happy Home realm. Hover over the icon for a moment to see the name of the given gear.</span>
                         </p>
                         <p>
-                            <span class="badge bg-danger tag m-1" data-bs-toggle="tooltip" title="This is where the Artifact name would show up" data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Warp.webp" alt="Artifact Tag"> </span> <span>-- Denotes a badge which gives an <b>Artifact.</b> These are special gears that can be used within the Nexus. Hover over the icon for a moment to see the name of the given gear.</span>
+                            <span class="badge artifact tag m-1" data-bs-toggle="tooltip" title="This is where the Artifact name would show up" data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Warp.webp" alt="Artifact Tag"> </span> <span>-- Denotes a badge which gives an <i>Artifact.</i> These are special gears that can be used within the Nexus. Hover over the icon for a moment to see the name of the given gear.</span>
                         </p>
                         <p>
-                            <span class="badge bg-primary tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="NonCanon Tag"></span> <span>-- Denotes a badge is considered <b><i>Non-canon,</i></b> and does not add to the canonical badge total</span>
+                            <span class="badge bg-primary tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="NonCanon Tag"></span> <span>-- Denotes a badge is considered <i>Non-completionist,</i> and does not add to the completionist badge total on the progress bar.</span>
                         </p>
                         <p>
                             <span class="badge bg-dark tag m-1"><img class="tag-img" src="/static/images/ShadowSwirl.webp" alt="Shadow Tag"></span> <span>-- Denotes a Shadow Badge. These are shrouded in mystery, and unnatturally difficult. These badges do not count toward the badge total.</span>
@@ -105,10 +105,10 @@
                                     <img class="card-img-top {% if not badge.collected %} opacity-25 {% endif %}" loading="lazy" src={{badge.imagePath}} alt="placeholder"  width="242" height="242" >
                                     <p class="card-text">{{badge.description}}</p>
                                     <div class="d-flex justify-content-end m-1">
-                                        {% if badge.gearName %} <span class="badge bg-secondary tag m-1" data-bs-toggle="tooltip" title="{{badge.gearName}}" data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Gear.webp" alt="Gear Tag"></span>{% endif %}
+                                        {% if badge.gearName %} <span class="badge gear tag m-1" data-bs-toggle="tooltip" title="{{badge.gearName}}" data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Gear.webp" alt="Gear Tag"></span>{% endif %}
                                         {% if badge.shadow %} <span class="badge bg-dark tag m-1"><img class="tag-img" src="/static/images/ShadowSwirl.webp" alt="Shadow Tag"></span>{% endif %}
                                         {% if badge.noncanon %} <span class="badge bg-primary tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="NonCanon Tag"></span>{% endif %}
-                                        {% if badge.artifact %} <span class="badge bg-danger tag m-1" data-bs-toggle="tooltip" title="{{badge.artifact}}" data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Warp.webp" alt="Artifact Tag"></span>{% endif %}
+                                        {% if badge.artifact %} <span class="badge artifact tag m-1" data-bs-toggle="tooltip" title="{{badge.artifact}}" data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Warp.webp" alt="Artifact Tag"></span>{% endif %}
                                         {% if badge.collab %} <span class="badge collab tag m-1"><img class="tag-img" src="/static/images/Handshake.webp" alt="Collab Tag"></span>{% endif %}
                                     </div>
                                     <div class="card-footer">

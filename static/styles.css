@@ -128,6 +128,14 @@
       margin-top: auto;
     }
 
+    .artifact{
+      background-color: #8300d4 !important;
+    }
+
+    .gear{
+      background-color: #696969 !important;
+    }
+
     /* Modal Styling */
 
     .modal-content{
