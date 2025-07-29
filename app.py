@@ -12,6 +12,8 @@ from models.fanartModel import fanartInfoMaker
 
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
+
+#"/home/RatGaming/Happy-Home-Website/.env"
 load_dotenv()
 
 from flask_wtf import FlaskForm
