@@ -164,6 +164,11 @@
       width: 100%;
     }
 
+    .progress-text{
+      font-size: large;
+      text-shadow: white 0px 0px 5px;
+    }
+
 
     /* All custom difficulty colors */
 
