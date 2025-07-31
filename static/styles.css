@@ -110,6 +110,10 @@
       height: 35px;
     }
 
+    .secretMessage{
+      margin-top: 700px;
+    }
+
     .collab{
       background: var(--collab) !important;
     }

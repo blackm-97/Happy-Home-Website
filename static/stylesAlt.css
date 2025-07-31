@@ -2,9 +2,9 @@
       --pumpkin: #5e0101;
       --dark-pumpkin: #811b1b;
       --peach:#FFA061;
-      --tan: #E2BDA1;
+      --tan: #b08383;
 
-      --undefined:rgb(17, 17, 17);
+      --undefined:rgb(17, 17, 17);  
       --freebie:rgb(13, 105, 172);
       --easy: rgb(31, 128, 29);
       --intermed:rgb(194, 191, 31);
@@ -32,7 +32,7 @@
 
     .REDACTED{
         background-color: black;
-        color: white;
+        color: rgb(39, 33, 33);
     }
 
     .opener{
