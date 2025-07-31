@@ -1,0 +1,85 @@
+{% extends 'baseplate_alt.html' %}
+{% block contentAlt %}
+    <main class="home m-auto mt-3 p-3 text-center">
+        <img class="img-fluid rounded" src="/static/images/HomeBanner.webp" alt="HomeBanner">
+        <header class="m-3">
+            <h1>Welcome to my world.</h1>
+            <p>            
+               Welcome to whatever the heck this is. This place was made without permission by me. 
+               It'll be updated whenever I feel like it. 
+               Check back once in a blue moon to maybe get an update. 
+               Anyway, go visit <a href="https://www.roblox.com/games/19336334/Happy-Home-Badge-Hunt" target="_blank">Nexus...</a> 
+               but only after basking in my gloriousness.
+            </p>
+            <h2>Universe ID 19336334:</h2>
+            <p>
+                Happy Home Badge Hunt (or HHBH if you're a nerd) is the false pseudonym of our shell company. 
+                We use it to lure in unsuspecting victims for us to <span class="REDACTED">[REDACTED TEXT.]</span>
+                Every corner of this universe has a trap waiting to be sprung. 
+                Don't worry, you never had a choice to begin with.
+            </p>
+            <audio controls autoplay id="browse_music">
+                <source src="/static/music/Demonhunter.webm" type="audio/mpeg">
+            </audio>
+        </header>
+        <section class="overview">
+
+        </section>
+        <section class="other-pages">
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                    <img src="/static/images/Title1.webp" class="img-fluid rounded-end" alt="Earn Badges!">
+                    </div>
+                    <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Tons of Badges to Collect!</h5>
+                        <p class="card-text">The HHBH universe has oodles of Badges to collect, all with their own set of challenges. They can range from being a walk in the park, to soul-crushingly difficult. Keep your wits about you, and don't be afraid of exploring outside the boundaries!</p>
+                        <p class="card-text"> Want to see your progress? Use the <a href="{{url_for('badges')}}">Badge List</a> page to see what badges you might be missing!</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">A Unique and Engaging Story</h5>
+                        <p class="card-text">HHBH contains a colorful cast of characters, and gripping world building that defies expectations. There is lore to discover 
+                            scattered across the lands connected by the Nexus. See if you can piece together the story for yourself! Most characters will be very talkative, see if 
+                            you can learn more from them? There is also an official collection of the game's lore in this <a href="https://www.roblox.com/games/18248596/Museum" target="_blank">museum!</a>
+                        </p>
+                        <p>
+                            I promise you there is more than just these noobs lol
+                        </p>
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/static/images/Title2.webp" class="img-fluid rounded-start" alt="Talk to Noobs!">
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                    <img src="/static/images/Title3.webp" class="img-fluid rounded-end" alt="Drive Cars!">
+                    </div>
+                    <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">A Creative and Friendly Community</h5>
+                        <p class="card-text"> 
+                            The HHBH community is friendly and endlessly creative. Despite the relatively small fanbase of the game, they are
+                            loyal and welcoming of anyone starting out on their adventure. 
+                            If you see anyone in the server with you, try getting them to sword fight with you!
+                        </p>
+                        <p>
+                            If you want to see some fanart the community has made, they can be found on the <a href="{{url_for('fanart')}}">fanart page!</a>
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="/static/utilities.js" charset="utf-8"></script>
+{% endblock %}

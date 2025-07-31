@@ -1,0 +1,219 @@
+:root{
+      --pumpkin: #5e0101;
+      --dark-pumpkin: #811b1b;
+      --peach:#FFA061;
+      --tan: #E2BDA1;
+
+      --undefined:rgb(17, 17, 17);
+      --freebie:rgb(13, 105, 172);
+      --easy: rgb(31, 128, 29);
+      --intermed:rgb(194, 191, 31);
+      --difficult: rgb(255, 125, 0);
+      --intense:rgb(196, 40, 28);
+      --soul:rgb(107, 50, 124);
+      --nonsense:rgb(255, 0, 191);
+      --collab: #550000;
+
+      --home-primary:#503d3d;
+      --home-secondary: #864c4c;
+    }
+
+    html{
+      background-color: var(--pumpkin);
+    }
+
+    body {
+      background-color: black !important;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: black !important;
+    }
+
+    .REDACTED{
+        background-color: black;
+        color: white;
+    }
+
+    .opener{
+      border: 10px solid var(--dark-pumpkin);
+      border-radius: 10px;
+    }
+
+    .navbar{
+      background-color: var(--pumpkin);
+    }
+    
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+      gap: 1rem;
+    }
+    /* .card-title, .card-{
+      border: 4mm ridge rgba(211, 220, 50, 0.6);
+      border-radius: 2em;
+    } */
+
+    .fanart-title{
+        -webkit-text-stroke: 1px black;
+        -webkit-text-fill-color: white;
+    }
+
+    .name-input{
+      border: 4mm solid var(--pumpkin);
+      border-radius: 2em;
+    }
+
+    .enter-img{
+      width: 34px;
+      height: 34px;
+      object-fit: fill;
+    }
+
+    .enter-button{
+      border-radius: 0.5em;
+      background-color: var(--pumpkin);
+    }
+
+    .enter-button:hover{
+      background-color: var(--dark-pumpkin);
+    }
+
+    .card {
+      width: 100%;  /* Fills the 18rem min-width grid cell */
+      height: 100%;
+      background-color: var(--dark-pumpkin) !important;
+      border: 5px solid black !important;
+      box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .card-stomach{
+      padding: 10px;
+      border-radius: 10px;
+      height: 100%;
+    }
+
+    .other-pages .card{
+      border: 5px solid var(--dark-pumpkin) !important;
+      background-color: var(--home-secondary) !important;
+      box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .card-stomach-color{
+      background-color: var(--tan) !important;
+    }
+
+    .enter-block{
+      margin-top: 75px;
+    }
+
+    .tag{
+      padding: 5px !important;
+    }
+
+    .tag-img{
+      width: 35px;
+      height: 35px;
+    }
+
+    .collab{
+      background: var(--collab) !important;
+    }
+
+    .home{
+      max-width: 1250px;
+      border: 10px solid var(--dark-pumpkin);
+      border-radius: 10px;
+      background-color: var(--home-primary);
+    }
+
+    .banner{
+      height: 100px;
+    }
+
+    .footer{
+      background-color: var(--pumpkin);
+      height: 100px;
+      margin-top: auto;
+    }
+
+    .badge-input{
+      width: 90% !important;
+    }
+
+    .artifact{
+      background-color: #7515b1 !important;
+    } 
+
+    .gear{
+      background-color: #696969 !important;
+    }
+
+    /* Modal Styling */
+
+    .modal-content{
+      background-color: var(--pumpkin)!important;
+    }
+
+    .modal-body{
+      background-image: url("/static/images/HHBH_bg.png");
+    }
+
+    /* Progress Bar */
+
+    .progress-bar-container{
+      width: 70%;
+      
+    }
+
+    .progress{
+      width: 100%;
+    }
+
+    .progress-text{
+      font-size: large;
+      text-shadow: white 0px 0px 5px;
+    }
+
+
+    /* All custom difficulty colors */
+
+    .badge{
+      font-size: large !important;
+    }
+
+    .bg-Undefined{
+      background-color: var(--undefined);
+    }
+
+    .bg-Freebee{
+      background-color: var(--freebie);
+    }
+
+    .bg-Easy{
+      background-color: var(--easy);
+    }
+
+    .bg-Intermediate{
+      background-color: var(--intermed);
+    }
+
+    .bg-Difficult{
+      background-color: var(--difficult);
+    }
+
+    .bg-Intense{
+      background-color: var(--intense);
+    }
+
+    .bg-Soul-Melter{
+      background-color: var(--soul);
+    }
+
+    .bg-Nonsensical{
+      background-color: var(--nonsense);
+    }
+
+    .bg-Special{
+      background-image: linear-gradient(to bottom right, var(--freebie),var(--easy),var(--intermed),var(--difficult),var(--intense),var(--soul),var(--nonsense)) !important;
+    }

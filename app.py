@@ -126,6 +126,10 @@ def contact():
 @app.route('/fanart')
 def fanart():
     return render_template('fanart.html', artData = fanartConstructor.query.all())
+
+@app.route('/home_alt')
+def homeAlt():
+    return render_template('home_alt.html')
     
     
 if __name__ == '__main__':
