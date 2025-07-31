@@ -9,6 +9,7 @@ from flask_bootstrap import Bootstrap
 
 from models.badgeModel import badgeInfoMaker
 from models.fanartModel import fanartInfoMaker
+from models.badgeCopperModel import badgeInfoCopperMaker
 
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
@@ -52,10 +53,12 @@ universe_id = 24833080
 
 #Gets badges from the database on spinup since they are not changing
 badgeConstructor = None
+badgeConstructorCopper = None
 fanartConstructor = None
 with app.app_context():
     badgeConstructor = badgeInfoMaker(db)
     fanartConstructor = fanartInfoMaker(db)
+    badgeConstructorCopper = badgeInfoCopperMaker(db)
 
 @app.route('/')
 def opener():
@@ -127,9 +130,63 @@ def contact():
 def fanart():
     return render_template('fanart.html', artData = fanartConstructor.query.all())
 
-@app.route('/home_alt')
+#Alternate website routing list
+
+@app.route('/01001001')
 def homeAlt():
     return render_template('home_alt.html')
+
+@app.route('/badgesAlt', methods=['GET', 'POST'])
+def badgesAlt():
+    if request.method == 'POST':
+        #TODO: Handle requests in a different class?
+        #Sending a request. See if user is valid
+        nameRequest = request.form.get('R_Name')
+
+        if nameRequest.strip() == '':
+            #TODO: Message flash here
+            return render_template('badges_alt.html', error='Username cannot be empty')
+
+        userResponse = userInfo(nameRequest)
+
+        errorMessage = "Unknown Error Occurred"
+
+        #We can make this better with showing a error response message
+        if userResponse.status_code != 200:
+            return render_template('badges_alt.html', error="Roblox Server Error")
+
+        data = userResponse.json()['data']
+        if len(data) == 0:
+            return render_template('badges_alt.html', error="User Not Found")
+        
+        try:
+            data = data[0]
+            #We will have to do much more for comparing badges to users current badges
+
+            gameData = getGameBadges()
+            gameData = gameData.json()['data']
+
+            db_badges = badgeConstructorCopper.query.order_by(badgeConstructorCopper.order.asc()).all()
+
+            retrievedBadges = getCollectedBadges(data['id'], db_badges)
+
+            #Dictionary of Parameters
+            context = {
+                'gameData': createBadgeList(retrievedBadges['data'], db_badges),
+                'userName' : data['name'],
+                'userId' : data['id'],
+                'earnedDict' : retrievedBadges
+            }
+
+            return render_template('badgesresponse_alt.html', **context)
+        except Exception as e:
+            return render_template('badges_alt.html', error=f"Internal Server Error: {e}")
+    else:
+        return render_template('badges_alt.html')
+
+@app.route('/fanartAlt')
+def fanartAlt():
+    return render_template('fanart_alt.html')
     
     
 if __name__ == '__main__':

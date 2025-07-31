@@ -1,10 +1,10 @@
 
 from datetime import datetime
 
-def badgeInfoMaker(db):
+def badgeInfoCopperMaker(db):
 
-    class BadgeInfo(db.Model):
-        __tablename__ = "BadgeInfo"
+    class BadgeInfoCopper(db.Model):
+        __tablename__ = "BadgeInfoCopper"
 
         id = db.Column(db.Integer, primary_key=True, unique=True, nullable=False)
         displayName = db.Column(db.Text, nullable=False)
@@ -29,4 +29,4 @@ def badgeInfoMaker(db):
         def to_dict(self):
             return {c.name: getattr(self, c.name) for c in self.__table__.columns}
         
-    return BadgeInfo
+    return BadgeInfoCopper

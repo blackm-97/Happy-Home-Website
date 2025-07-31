@@ -1,0 +1,38 @@
+{% extends 'baseplate_alt.html' %}
+{% block contentAlt %}
+    <h2 class="text-center text-white">If it breaks you can deal with it</h2>
+    <section class="enter-block m-4">
+        <div class="row" data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative; height: 688.4px;">
+        {% for i in range(4) %}
+            <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 66.6667%; top: 0px;">
+                <div class="card text-bg-dark">
+                    <img src=/static/images/copperjjv1.png class="card-img">
+                    <div class="card-img-overlay">
+                            <h5 class="card-title fanart-title fs-3">What a handsome devil, I wonder who that could be?</h5>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% for i in range(3) %}
+            <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 66.6667%; top: 0px;">
+                <div class="card text-bg-dark">
+                    <img src=/static/images/copperjjv1.png class="card-img">
+                    <div class="card-img-overlay">
+                            <h5 class="card-title fanart-title fs-3">Made By : Who Cares</h5>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% for i in range(2) %}
+            <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 66.6667%; top: 0px;">
+                <div class="card text-bg-dark">
+                    <img src=/static/images/copperjjv1.png class="card-img">
+                    <div class="card-img-overlay">
+                            <h5 class="card-title fanart-title fs-3">Ever wonder why the Haxes are green? It's because they envy my style.</h5>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+    <script src="/static/utilities.js" charset="utf-8"></script>
+{% endblock %}
