@@ -2,10 +2,10 @@
 {% block contentAlt %}
     <header class="d-flex justify-content-evenly text-center m-4">
         <!--Rarest Badges Go Here-->
-        <h2 class="h2">
+        <h2 class="h2 text-white">
             Total Badges: {{gameData['totFoundBadges']}} / {{gameData['totBadges']}}
         </h2>
-        <h2 class="h2">Browsing Badges For: {{userName}}</h2>
+        <h2 class="h2 text-white">Browsing Badges For: {{userName}}</h2>
         <audio controls autoplay id="browse_music">
             <source src="/static/music/TrophyGallery.mp3" type="audio/mpeg">
         </audio>
@@ -17,7 +17,7 @@
         </div> -->
 
         <div class="progress position-relative m-3" role="progressbar" aria-label="Progress Bar" aria-valuenow="{{gameData['foundCanonBadges']}}" aria-valuemin="0" aria-valuemax="{{gameData['canonBadges']}}" style="height: 50px;">
-            <div class="progress-bar bg-{{gameData['progressDisplay']}} progress-bar-striped progress-bar-animated" style="width: {{ gameData['foundPercent'] }}%;"> </div>
+            <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width: {{ gameData['foundPercent'] }}%;"> </div>
             <small class="progress-text justify-content-center align-items-center d-flex position-absolute w-100 h-100 m-auto">[{{gameData['foundCanonBadges']}} / {{gameData['canonBadges']}}] {% if gameData['shadowCollected'] %} (+{{gameData['shadowCollected']}}){% endif %} Completionist Badges</small>
         </div>
     </div>
@@ -118,7 +118,7 @@
 
     {%for section in gameData['badgeList']%}
     <section class="">
-        <h2 class="badge-section text-center m-3 p-3 bg-success bg-gradient border border-3 border-black rounded-3">{{section['sectionName']}}</h2>
+        <h2 class="badge-section text-center m-3 p-3 bg-danger bg-gradient border border-3 border-black rounded-3">{{section['sectionName']}}</h2>
             <div class="container mt-4">
                 <div class="card-grid">
 

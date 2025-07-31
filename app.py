@@ -159,28 +159,29 @@ def badgesAlt():
         if len(data) == 0:
             return render_template('badges_alt.html', error="User Not Found")
         
-        try:
-            data = data[0]
-            #We will have to do much more for comparing badges to users current badges
+        #Try block starts here
 
-            gameData = getGameBadges()
-            gameData = gameData.json()['data']
+        data = data[0]
+        #We will have to do much more for comparing badges to users current badges
 
-            db_badges = badgeConstructorCopper.query.order_by(badgeConstructorCopper.order.asc()).all()
+        gameData = getGameBadges()
+        gameData = gameData.json()['data']
 
-            retrievedBadges = getCollectedBadges(data['id'], db_badges)
+        db_badges = badgeConstructorCopper.query.order_by(badgeConstructorCopper.order.asc()).all()
 
-            #Dictionary of Parameters
-            context = {
-                'gameData': createBadgeList(retrievedBadges['data'], db_badges),
-                'userName' : data['name'],
-                'userId' : data['id'],
-                'earnedDict' : retrievedBadges
-            }
+        retrievedBadges = getCollectedBadges(data['id'], db_badges)
 
-            return render_template('badgesresponse_alt.html', **context)
-        except Exception as e:
-            return render_template('badges_alt.html', error=f"Internal Server Error: {e}")
+        #Dictionary of Parameters
+        context = {
+            'gameData': createBadgeListGeneral(retrievedBadges['data'], db_badges),
+            'userName' : data['name'],
+            'userId' : data['id'],
+            'earnedDict' : retrievedBadges
+        }
+
+        return render_template('badgesresponse_alt.html', **context)
+        # except Exception as e:
+        #     return render_template('badges_alt.html', error=f"Internal Server Error: {e}")
     else:
         return render_template('badges_alt.html')
 

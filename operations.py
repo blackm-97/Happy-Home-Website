@@ -36,7 +36,6 @@ def createBadgeList(userBadges, databaseBadges):
     
     currDict = {} #{name->sectionName, bagdes->[list of badges]}
     #For each badge, we add it to once of the sections above. We figure out which section based on the badge breakpoint
-
     
     for badge in databaseBadges:
         if index < len(breakpoints) and badge.id == breakpoints[index]:
@@ -102,6 +101,76 @@ def createBadgeList(userBadges, databaseBadges):
     gameData['progressDisplay'] = CalculateEligability(badgeDictionary, shadow)
 
     return gameData
+
+def createBadgeListGeneral(userBadges, databaseBadges):
+    badgeDictionary = {}
+    for data in userBadges:
+        badgeDictionary[data['badgeId']] = data['awardedDate']
+
+    #Represents info dictionary to parse
+    gameData = {}
+    gameData['totBadges'] = 0
+    gameData['totFoundBadges'] = 0
+    gameData['badgePercent'] = 0
+
+    gameData['canonBadges'] = 0
+    gameData['foundCanonBadges'] = 0
+    gameData['foundPercent'] = 0
+
+    gameData['shadowBadges'] = 0
+    gameData['shadowCollected'] = 0
+
+    #List to populate with badges in sections
+    res = []
+
+    index = 0
+    
+    currDict = {} #{name->sectionName, badges->[list of badges]}
+    #For each badge, we add it to once of the sections above. We figure out which section based on the badge breakpoint
+    currDict['sectionName'] = "Copper's Better Badge List"
+    currDict['badges'] = []
+
+    for badge in databaseBadges:
+        badge.difficultyVal = getDifficultyFromNum(badge.difficultyVal)
+
+        if not (badge.noncanon or badge.shadow or badge.extra):
+                gameData['canonBadges'] += 1
+
+        if badge.shadow:
+            gameData['shadowBadges'] += 1
+
+        #Check if we have found a badge
+        value = badgeDictionary.get(badge.id, None)
+        if value:
+            badge.collected = True
+            badge.awardedDate = value[0:10]
+            if not badge.extra:
+                gameData['totFoundBadges'] += 1
+
+            if not (badge.noncanon or badge.shadow or badge.extra):
+                gameData['foundCanonBadges'] += 1
+
+            if badge.shadow:
+                gameData['shadowCollected'] += 1
+
+        if not badge.extra:
+            gameData['totBadges'] += 1
+        currDict['badges'].append(badge)
+
+    if currDict:
+        res.append(currDict)
+
+    #Calculate badge percent
+    gameData['badgeList'] = res
+    if gameData['totBadges'] == 0 or gameData['totFoundBadges'] == 0:
+        gameData['badgePercent'] = 0
+        gameData['foundPercent'] = 0
+    else:
+        gameData['badgePercent'] = max(0,  min((gameData['totFoundBadges'] / gameData['totBadges']) * 100, 100))
+        gameData['foundPercent'] = max(0, min(( gameData['foundCanonBadges'] / gameData['canonBadges']) * 100, 100))
+
+    return gameData
+
 
 
 #Badges Needed to be eligable
