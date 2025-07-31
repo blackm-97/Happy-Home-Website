@@ -1,6 +1,7 @@
 :root{
       --pumpkin: #5e0101;
       --dark-pumpkin: #811b1b;
+      --darker-pumpkin:#2f0009;
       --peach:#FFA061;
       --tan: #b08383;
 
@@ -16,6 +17,8 @@
 
       --home-primary:#503d3d;
       --home-secondary: #864c4c;
+
+      --navText:rgb(216, 33, 33);
     }
 
     html{
@@ -35,6 +38,38 @@
         color: rgb(39, 33, 33);
     }
 
+    a:link{
+      color:var(--pumpkin)
+    }
+
+    a:active{
+      color:var(--pumpkin)
+    }
+
+    a:visited{
+      color:var(--pumpkin)
+    }
+
+    a:hover{
+      color: var(--darker-pumpkin)
+    }
+
+    .nav-link:active{
+      color: var(--navText);
+    }
+
+    .nav-link:visited{
+      color: var(--navText);
+    }
+
+    .nav-link:link{
+      color:var(--navText);
+    }
+
+    .nav-link:hover{
+      color: var(--navText);
+    }
+
     .opener{
       border: 10px solid var(--dark-pumpkin);
       border-radius: 10px;
@@ -42,7 +77,9 @@
 
     .navbar{
       background-color: var(--pumpkin);
+      color: white;
     }
+    
     
     .card-grid {
       display: grid;
@@ -156,7 +193,7 @@
     }
 
     .modal-body{
-      background-image: url("/static/images/HHBH_bg.png");
+      background-color: var(--home-secondary);
     }
 
     /* Progress Bar */

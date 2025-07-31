@@ -5,7 +5,7 @@
         <h2 class="h2 text-white">
             Total Badges: {{gameData['totFoundBadges']}} / {{gameData['totBadges']}}
         </h2>
-        <h2 class="h2 text-white">Browsing Badges For: {{userName}}</h2>
+        <h2 class="h2 text-white">Calculating Ego For: {{userName}}</h2>
         <audio controls autoplay id="browse_music">
             <source src="/static/music/TrophyGallery.mp3" type="audio/mpeg">
         </audio>
@@ -18,7 +18,7 @@
 
         <div class="progress position-relative m-3" role="progressbar" aria-label="Progress Bar" aria-valuenow="{{gameData['foundCanonBadges']}}" aria-valuemin="0" aria-valuemax="{{gameData['canonBadges']}}" style="height: 50px;">
             <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width: {{ gameData['foundPercent'] }}%;"> </div>
-            <small class="progress-text justify-content-center align-items-center d-flex position-absolute w-100 h-100 m-auto">[{{gameData['foundCanonBadges']}} / {{gameData['canonBadges']}}] {% if gameData['shadowCollected'] %} (+{{gameData['shadowCollected']}}){% endif %} Completionist Badges</small>
+            <small class="progress-text justify-content-center align-items-center d-flex position-absolute w-100 h-100 m-auto">[{{gameData['foundCanonBadges']}} / {{gameData['canonBadges']}}] Copper JJ Badges</small>
         </div>
     </div>
 
@@ -28,23 +28,12 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Badge Legend</h5>
+                    <h5 class="modal-title text-white" id="staticBackdropLabel">Badge Legend</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <section class="difficulties">
-                        <h3>Difficulties</h3>
-                        <p>
-                            <span class="badge rounded-pill bg-Freebee">Freebee</span> <span>-- Even someone with below room temperature IQ could get it.</span>
-                        </p>
-                        <p>
-                            <span class="badge rounded-pill bg-Easy">Easy</span> <span>-- Out in the open or otherwise easily accessible.</span>
-                        <p>
-                            <span class="badge rounded-pill bg-Intermediate">Intermediate</span> <span>-- It might take you a little while to get it, but it shouldn't be too hard.</span>
-                        </p>
-                        <p>
-                            <span class="badge rounded-pill bg-Difficult">Difficult</span> <span>-- This is where you'll have to start using your brain (or just have dedication.)</span>
-                        </p>
+                        <h3>Difficulties (But Only The Ones That Matter)</h3>
                         <p>
                             <span class="badge rounded-pill bg-Intense">Intense</span> <span>-- You're going to be here for a long time.</span>
                         </p>
@@ -64,46 +53,14 @@
                     <section class="tags">
                         <h3>Tags</h3>
                         <p>
-                            <span class="badge gear tag m-1" data-bs-toggle="tooltip" title="This is where the Gear name would show up" data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Gear.webp" alt="Gear Tag"></span> <span>-- Denotes a badge that gives a Gear. These are items that can be used in the Happy Home realm. Hover over the icon for a moment to see the name of the given gear.</span>
-                        </p>
-                        <p>
-                            <span class="badge artifact tag m-1" data-bs-toggle="tooltip" title="This is where the Artifact name would show up" data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Warp.webp" alt="Artifact Tag"> </span> <span>-- Denotes a badge which gives an <i>Artifact.</i> These are special gears that can be used within the Nexus. Hover over the icon for a moment to see the name of the given gear.</span>
-                        </p>
-                        <p>
-                            <span class="badge bg-primary tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="NonCanon Tag"></span> <span>-- Denotes a badge is considered <i>Non-completionist,</i> and does not add to the completionist badge total on the progress bar.</span>
-                        </p>
-                        <p>
-                            <span class="badge bg-dark tag m-1"><img class="tag-img" src="/static/images/ShadowSwirl.webp" alt="Shadow Tag"></span> <span>-- Denotes a Shadow Badge. These are shrouded in mystery, and unnatturally difficult. These badges do not count toward the badge total.</span>
-                        </p>
-                        <p>
-                            <span class="badge collab tag m-1"><img class="tag-img" src="/static/images/Handshake.webp" alt="Collab Tag"></span> <span>-- Denotes a Collab. This is given to badges that have a proper collab between games. </span>
+                            <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="CopperJJ Tag"></span> <span>--Denotes a badge that can only be achieved by <i>real</i> badge hunters.</span>
                         </p>
                     </section>
                     <section>
                         <h3>Important Notes</h3>
                         <ul>
                             <li>
-                                Badges in the Extra section <i>do not</i> count towards any badge totals. They only exist as an optional challenge.
-                            </li>
-                            <li>
-                                The color of your progress bar indicates which group role you are eligible for. The order is:
-                                <ul>
-                                    <li>
-                                        Blue -> None
-                                    </li>
-                                    <li>
-                                        Gold -> Golden
-                                    </li>
-                                    <li>
-                                        Cyan -> Ultimate
-                                    </li>
-                                    <li>
-                                        Red -> Infernal
-                                    </li>
-                                    <li>
-                                        Black -> Shadow
-                                    </li>
-                                </ul>
+                                All of these badges are mandatory, except if you're a coward.
                             </li>
 
                         </ul>
@@ -134,12 +91,8 @@
                                     
                                     <img class="card-img-top {% if not badge.collected %} opacity-25 {% endif %}" loading="lazy" src={{badge.imagePath}} alt="placeholder"  width="242" height="242" >
                                     <p class="card-text">{{badge.description}}</p>
-                                    <div class="d-flex justify-content-end m-1">
-                                        {% if badge.gearName %} <span class="badge gear tag m-1" data-bs-toggle="tooltip" title="{{badge.gearName}}" data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Gear.webp" alt="Gear Tag"></span>{% endif %}
-                                        {% if badge.shadow %} <span class="badge bg-dark tag m-1"><img class="tag-img" src="/static/images/ShadowSwirl.webp" alt="Shadow Tag"></span>{% endif %}
-                                        {% if badge.noncanon %} <span class="badge bg-primary tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="NonCanon Tag"></span>{% endif %}
-                                        {% if badge.artifact %} <span class="badge artifact tag m-1" data-bs-toggle="tooltip" title="{{badge.artifact}}" data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Warp.webp" alt="Artifact Tag"></span>{% endif %}
-                                        {% if badge.collab %} <span class="badge collab tag m-1"><img class="tag-img" src="/static/images/Handshake.webp" alt="Collab Tag"></span>{% endif %}
+                                    <div class="d-flex justify-content-end m-1">                    
+                                        <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="CopperJJ Tag"></span>
                                     </div>
                                     <div class="card-footer">
                                         Earned on: {{badge.awardedDate}}
