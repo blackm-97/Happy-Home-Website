@@ -35,25 +35,25 @@
                     <section class="difficulties">
                         <h3>Difficulties (But Only The Ones That Matter)</h3>
                         <p>
-                            <span class="badge rounded-pill bg-Intense">Intense</span> <span>-- You're going to be here for a long time.</span>
+                            <span class="badge rounded-pill bg-Intense">Intense</span> <span>-- For my standards, these aren't too bad. For you? Might be a nightmare.</span>
                         </p>
                         <p>
-                            <span class="badge rounded-pill bg-Soul-Melter">Soul-Melter</span> <span>-- <i>Good luck.</i></span>
+                            <span class="badge rounded-pill bg-Soul-Melter">Soul-Melter</span> <span>-- Exactly what I want to put people through.</span>
                         </p>
                         <p>
-                            <span class="badge rounded-pill bg-Nonsensical">Nonsensical</span> <span>-- I advise against attempting this. <i>It's going to hurt.</i></span>
+                            <span class="badge rounded-pill bg-Nonsensical">Nonsensical</span> <span>-- Brutally difficult, zero respect for the victim- I mean player. My own challenges would never go this far.</span>
                         </p>
                         <p>
-                            <span class="badge rounded-pill bg-Special">Special</span> <span>--  Varies in difficulty and/or has multiple obtainment methods.</span>
-                        </p>
-                        <p>
-                            <span class="badge rounded-pill bg-Undefined">Undefined</span> <span>-- Hasn't been implemented yet.</span>
+                            <span class="badge rounded-pill bg-Undefined">Undefined</span> <span>-- Frankly I don't know why this is here. Consider it a placeholder that I don't feel like removing.</span>
                         </p>
                     </section>
                     <section class="tags">
                         <h3>Tags</h3>
                         <p>
-                            <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/CopperFedora.webp" alt="CopperJJ Tag"></span> <span>--Denotes a badge that can only be achieved by <i>real</i> badge hunters.</span>
+                            <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/CopperFedora.webp" alt="CopperJJ Tag"></span> <span>-- Denotes a badge that can only be achieved by <i>real</i> badge hunters.</span>
+                        </p>
+                        <p>
+                            <span class="badge gear tag m-1" data-bs-toggle="tooltip" title="This is where the Gear name would show up" data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Gear.webp" alt="Gear Tag"></span> <span>-- Denotes a gift for those who enjoy torment.</span>
                         </p>
                     </section>
                     <section>
@@ -92,6 +92,7 @@
                                     <p class="card-text">{{badge.description}}</p>
                                     <div class="d-flex justify-content-end m-1">                    
                                         <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/CopperFedora.webp" alt="CopperJJ Tag"></span>
+                                        {% if badge.gearName%} <span class="badge gear tag m-1" data-bs-toggle="tooltip" title={{badge.gearName}} data-bs-placement="bottom" style="cursor:pointer"><img class="tag-img" src="/static/images/Gear.webp" alt="Gear Tag"></span> {% endif %}
                                     </div>
                                     <div class="card-footer">
                                         Earned on: {{badge.awardedDate}}
