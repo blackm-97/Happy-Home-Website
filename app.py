@@ -14,7 +14,7 @@ from models.badgeCopperModel import badgeInfoCopperMaker
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 
-#"/home/RatGaming/Happy-Home-Website/.env"
+# dotenv_path='/home/RatGaming/.env'
 load_dotenv()
 
 from flask_wtf import FlaskForm

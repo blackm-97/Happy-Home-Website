@@ -25,7 +25,7 @@
 
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-dialog bg-danger modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title text-white" id="staticBackdropLabel">Badge Legend</h5>
@@ -53,7 +53,7 @@
                     <section class="tags">
                         <h3>Tags</h3>
                         <p>
-                            <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="CopperJJ Tag"></span> <span>--Denotes a badge that can only be achieved by <i>real</i> badge hunters.</span>
+                            <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/CopperFedora.webp" alt="CopperJJ Tag"></span> <span>--Denotes a badge that can only be achieved by <i>real</i> badge hunters.</span>
                         </p>
                     </section>
                     <section>
@@ -62,7 +62,6 @@
                             <li>
                                 All of these badges are mandatory, except if you're a coward.
                             </li>
-
                         </ul>
                     </section>
                 </div>
@@ -92,7 +91,7 @@
                                     <img class="card-img-top {% if not badge.collected %} opacity-25 {% endif %}" loading="lazy" src={{badge.imagePath}} alt="placeholder"  width="242" height="242" >
                                     <p class="card-text">{{badge.description}}</p>
                                     <div class="d-flex justify-content-end m-1">                    
-                                        <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/red-circle.svg" alt="CopperJJ Tag"></span>
+                                        <span class="badge bg-danger tag m-1"><img class="tag-img" src="/static/images/CopperFedora.webp" alt="CopperJJ Tag"></span>
                                     </div>
                                     <div class="card-footer">
                                         Earned on: {{badge.awardedDate}}
@@ -108,7 +107,7 @@
     {% endfor %}
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary position-fixed m-4 bottom-0 end-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <button type="button" class="btn btn-danger position-fixed m-4 bottom-0 end-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         Legend
     </button>
     <script src="/static/utilities.js" charset="utf-8"></script>

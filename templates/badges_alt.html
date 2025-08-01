@@ -3,7 +3,7 @@
 {% block contentAlt %}
     <section class="enter-block">
         <form action="{{url_for('badgesAlt')}}" method='POST' class="text-center" onsubmit="startLoading(this);">
-            <h1 class="text-white">Enter Nerd Username: </h1>
+            <h1 class="text-white">Enter Personal Identification: </h1>
             <div class="input-group badge-input m-auto name-input input-group-lg">
                 <input type="text" class="form-control" placeholder="Literally where else are you gonna put it." aria-label="Roblox Username" aria-describedby="basic-addon2"  name="R_Name" id="R_Name">
                 <div class="input-group-append enter-button">
@@ -11,6 +11,7 @@
                 </div>
             </div>
         </form>
+        <p class="text-center text-secondary">By giving us your name, we reserve the right to use any and all of your personal info for our own purposes.</p>
         {% if error%}
             <p class="text-center">{{error}}</p>
          {%endif%}
