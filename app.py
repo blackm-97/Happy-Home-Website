@@ -136,7 +136,7 @@ def fanart():
 def homeAlt():
     return render_template('home_alt.html')
 
-@app.route('/badgesAlt', methods=['GET', 'POST'])
+@app.route('/01010011-01000101-01000101', methods=['GET', 'POST'])
 def badgesAlt():
     if request.method == 'POST':
         #TODO: Handle requests in a different class?
@@ -160,32 +160,32 @@ def badgesAlt():
             return render_template('badges_alt.html', error="User Not Found")
         
         #Try block starts here
+        try:
+            data = data[0]
+            #We will have to do much more for comparing badges to users current badges
 
-        data = data[0]
-        #We will have to do much more for comparing badges to users current badges
+            gameData = getGameBadges()
+            gameData = gameData.json()['data']
 
-        gameData = getGameBadges()
-        gameData = gameData.json()['data']
+            db_badges = badgeConstructorCopper.query.order_by(badgeConstructorCopper.order.asc()).all()
 
-        db_badges = badgeConstructorCopper.query.order_by(badgeConstructorCopper.order.asc()).all()
+            retrievedBadges = getCollectedBadges(data['id'], db_badges)
 
-        retrievedBadges = getCollectedBadges(data['id'], db_badges)
+            #Dictionary of Parameters
+            context = {
+                'gameData': createBadgeListGeneral(retrievedBadges['data'], db_badges),
+                'userName' : data['name'],
+                'userId' : data['id'],
+                'earnedDict' : retrievedBadges
+            }
 
-        #Dictionary of Parameters
-        context = {
-            'gameData': createBadgeListGeneral(retrievedBadges['data'], db_badges),
-            'userName' : data['name'],
-            'userId' : data['id'],
-            'earnedDict' : retrievedBadges
-        }
-
-        return render_template('badgesresponse_alt.html', **context)
-        # except Exception as e:
-        #     return render_template('badges_alt.html', error=f"Internal Server Error: {e}")
+            return render_template('badgesresponse_alt.html', **context)
+        except Exception as e:
+            return render_template('badges_alt.html', error=f"Internal Server Error: {e}")
     else:
         return render_template('badges_alt.html')
 
-@app.route('/fanartAlt')
+@app.route('/01011001-01001111-01010101')
 def fanartAlt():
     return render_template('fanart_alt.html')
     
